@@ -1,0 +1,5 @@
+{
+  "editor.tabSize": 2,
+  "ruby.rubocop.executePath": "/path/to/rufo",
+  "editor.formatOnSave": true
+}
