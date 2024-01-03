@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
+  devise_for :admins
+  resources :admins
   devise_for :users
   root 'home#index'
   get 'dashboard', to: 'dashboard#show'
+  resources 'trade', only: [:index]
   resources :transactions, only: [:index]
+  
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   get "trade", to: "trade#index"
