@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  userid: one
+  action: MyString
+  stock: MyString
+  shares: 9.99
+  price: 9.99
+  total: 9.99
+
+two:
+  userid: two
+  action: MyString
+  stock: MyString
+  shares: 9.99
+  price: 9.99
+  total: 9.99
