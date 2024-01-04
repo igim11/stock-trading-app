@@ -1,0 +1,7 @@
+<h1>Pending Trader Sign-ups</h1>
+
+<% @pending_users.each do |user| %>
+  <p><%= link_to user.first_name, show_user_admin_path(user) %> (Status: <%= user.status %>)</p>
+<% end %>
+
+<%= link_to 'Back', admins_path %>

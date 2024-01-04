@@ -9,10 +9,20 @@ class User < ApplicationRecord
   before_validation :set_default_status, on: :create
   after_create :notify_admin
 
+  before_save :set_status_based_on_approval
+
   private
 
   def set_default_status
-    self.status = 'pending' if status.blank?
+    self.status = 'Pending' if status.blank?
+  end
+
+  def set_status_based_on_approval
+    self.status = 'Approved' if status_change_to_be_approved?
+  end
+
+  def status_change_to_be_approved?
+    status_changed? && status == 'Approved'
   end
 
 end
