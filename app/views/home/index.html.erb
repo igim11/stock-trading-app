@@ -1,2 +1,42 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+
+  <div>
+    <header>
+      <h3>Welcome to NebulaTrade</h3>
+      <p>Your Stock Trading Platform</p>
+    </header>
+
+    <main>
+      <section>
+        <h2>About NebulaTrade</h2>
+        <p>
+          NebulaTrade is a powerful stock trading platform that allows you to
+          buy and sell stocks, monitor your portfolio, and stay informed about
+          market trends.
+        </p>
+      </section>
+
+      <section>
+        <h2>Key Features</h2>
+        <ul>
+          <li>Buy and sell stocks with ease.</li>
+          <li>Monitor your portfolio in real-time.</li>
+          <li>Stay informed with market charts and data.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Get Started</h2>
+        <p>
+          Ready to start trading? Sign up or log in to your NebulaTrade account
+          to explore the exciting world of stock trading.
+        </p>
+        <%= link_to 'Sign Up', new_user_registration_path, class: 'button' %>
+        <%= link_to 'Log In', new_user_session_path, class: 'button' %>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; <%= Time.now.year %> NebulaTrade. All rights reserved.</p>
+    </footer>
+
+  </div>
