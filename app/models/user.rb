@@ -3,7 +3,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
+  
+  has_many :transactions
+  
   validates :status, inclusion: { in: %w[pending approved], message: "%{value} is not a valid status" }
 
   before_validation :set_default_status, on: :create

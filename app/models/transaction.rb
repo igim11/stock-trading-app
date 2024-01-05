@@ -1,3 +1,3 @@
 class Transaction < ApplicationRecord
-  belongs_to :userid
+  belongs_to :user
 end

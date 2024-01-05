@@ -14,19 +14,53 @@
  *= require_self
  */
 
- body {
-   background: black;
- }
- 
- .trade-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    width: 100%;
-    background: black;
- }
+body {
+  background: black;
+}
 
- h1 {
-   color: white;
- }
+.trade-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  width: 100%;
+  background: black;
+  flex-direction: column;
+}
+
+h1 {
+  color: white;
+}
+
+.form-control {
+  background-color: #2A2D35;
+  outline: none;
+  color: white;
+  border: 1px solid #131722;
+}
+
+.form-control:disabled {
+  background-color: #2A2D35;
+  outline: none;
+  color: white;
+  border: 1px solid #131722;
+}
+
+.form-control:focus {
+  background-color: #2A2D35;
+  outline: none;
+  color: white;
+  border: 1px solid #131722;
+}
+
+.form-label {
+  color: white;
+}
+
+.form-text {
+  color: white;
+}
+
+.card {
+  background-color: #131722;
+}
