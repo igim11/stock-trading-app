@@ -14,8 +14,29 @@
  *= require_self
  */
 
+@font-face {
+  font-family: "Montserrat";
+  src: url("montserrat-regular.woff2") format("woff2"),
+    url("montserrat-regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+header {
+  color: white;
+  font-family: "Montserrat", sans-serif;
+}
+
 body {
   background: black;
+  color: white;
+  margin: 5px 15px 5px 15px;
+  padding: 0;
+}
+
+footer {
+  position: relative;
+  bottom: 0;
 }
 
 .trade-container {
@@ -28,26 +49,22 @@ body {
   flex-direction: column;
 }
 
-h1 {
-  color: white;
-}
-
 .form-control {
-  background-color: #2A2D35;
+  background-color: #2a2d35;
   outline: none;
   color: white;
   border: 1px solid #131722;
 }
 
 .form-control:disabled {
-  background-color: #2A2D35;
+  background-color: #2a2d35;
   outline: none;
   color: white;
   border: 1px solid #131722;
 }
 
 .form-control:focus {
-  background-color: #2A2D35;
+  background-color: #2a2d35;
   outline: none;
   color: white;
   border: 1px solid #131722;
@@ -63,4 +80,23 @@ h1 {
 
 .card {
   background-color: #131722;
+}
+
+/*style for the homepage*/
+
+.homepage_header,
+.homepage_main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.homepage_header {
+  padding-bottom: 50px;
+}
+
+.about_section,
+.features_section {
+  padding-bottom: 30px;
 }
