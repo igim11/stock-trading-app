@@ -21,7 +21,12 @@ Rails.application.routes.draw do
 
   devise_for :users
   get 'dashboard', to: 'dashboard#show'
-  resources 'trade', only: [:index]
+  resources :trade, only: [:index] do
+    collection do
+      get 'buy'
+      get 'sell'
+    end
+  end
   resources :transactions, only: [:index]
   
   get "trade", to: "trade#index"

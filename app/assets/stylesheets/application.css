@@ -34,13 +34,12 @@ h1 {
 
 .form-control {
   background-color: #2A2D35;
-  outline: none;
   color: white;
   border: 1px solid #131722;
 }
 
 .form-control:disabled {
-  background-color: #2A2D35;
+  background-color: #202123;
   outline: none;
   color: white;
   border: 1px solid #131722;
@@ -63,4 +62,8 @@ h1 {
 
 .card {
   background-color: #131722;
+}
+
+.buy-sell-btn {
+  padding-bottom: 5px;
 }
