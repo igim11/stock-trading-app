@@ -43,14 +43,18 @@ footer {
   top: 96.5%;
   margin-top: 2px;
   bottom: 0;
-  font-size: 7pt;
+  padding-left: 5px;
+}
+
+#footer {
+  font-size: 8pt;
 }
 
 p,
 li,
 .signup_link,
 .login_link {
-  font-size: 11pt;
+  font-size: 10pt;
 }
 
 .trade-container {
@@ -103,11 +107,11 @@ h5 {
 
 .homepage_container {
   display: flex;
-  margin-top: 2.5%;
+  margin-top: 1%;
+  overflow: hidden;
 }
 
-.homepage_content,
-.get_started_section {
+.homepage_content {
   flex: 1;
   align-items: center;
   text-align: center;
@@ -116,6 +120,14 @@ h5 {
   border-image: linear-gradient(to right, transparent, #000, transparent) 1;
   border-image-slice: 1;
   border-radius: 25px;
+  line-height: normal;
+}
+
+.get_started_section {
+  flex: 1;
+  justify-items: space-between;
+  align-items: center;
+  text-align: center;
   line-height: normal;
 }
 
@@ -139,9 +151,12 @@ h5 {
   padding-bottom: 35px;
 }
 
-.about_section,
+.about_section {
+  padding-bottom: 18px;
+}
+
 .features_section {
-  padding-bottom: 20px;
+  padding-bottom: 13px;
 }
 
 .get_started_container {
@@ -149,25 +164,8 @@ h5 {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin: 20% 10px 30% 10px;
+  margin: 15% 10px 20% 10px;
   padding: 10px;
   border: 1px solid burlywood;
   border-radius: 13px;
-}
-
-/* Responsive styles for smaller screens */
-@media screen and (min-width: 500px) and (min-height: 645px) {
-  .homepage_content,
-  .get_started_section {
-    width: 90% min;
-  }
-
-  .homepage_header {
-    padding-bottom: 15px;
-  }
-
-  .about_section,
-  .features_section {
-    padding-bottom: 10px;
-  }
 }
