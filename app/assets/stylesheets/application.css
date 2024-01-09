@@ -14,8 +14,47 @@
  *= require_self
  */
 
+@font-face {
+  font-family: "Cascadia Code";
+  src: url("CascadiaCode.ttf") format("ttf"),
+    url("CascadiaMono.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+header {
+  color: white;
+  font-family: "Cascadia Code", monospace;
+}
+
 body {
   background: black;
+  color: white;
+  margin: 10px 5px 2px 5px;
+  padding: 0 0 3px 0;
+  display: flex;
+  flex-direction: column;
+  font-family: "Cascadia Code", monospace;
+  overflow: hidden;
+}
+
+footer {
+  position: absolute;
+  top: 96.5%;
+  margin-top: 2px;
+  bottom: 0;
+  padding-left: 5px;
+}
+
+#footer {
+  font-size: 8pt;
+}
+
+p,
+li,
+.signup_link,
+.login_link {
+  font-size: 10pt;
 }
 
 .trade-container {
@@ -28,12 +67,9 @@ body {
   flex-direction: column;
 }
 
-h1 {
-  color: white;
-}
-
 .form-control {
-  background-color: #2A2D35;
+  background-color: #2a2d35;
+  outline: none;
   color: white;
   border: 1px solid #131722;
 }
@@ -46,7 +82,7 @@ h1 {
 }
 
 .form-control:focus {
-  background-color: #2A2D35;
+  background-color: #2a2d35;
   outline: none;
   color: white;
   border: 1px solid #131722;
@@ -66,4 +102,74 @@ h1 {
 
 .buy-sell-btn {
   padding-bottom: 5px;
+}
+
+/*style for the homepage*/
+h5 {
+  color: darkorange;
+}
+
+.homepage_container {
+  display: flex;
+  margin-top: 1%;
+  overflow: hidden;
+}
+
+.homepage_content {
+  flex: 1;
+  align-items: center;
+  text-align: center;
+  background-color: #2a2d35;
+  border: 10px solid;
+  border-image: linear-gradient(to right, transparent, #000, transparent) 1;
+  border-image-slice: 1;
+  border-radius: 25px;
+  line-height: normal;
+}
+
+.get_started_section {
+  flex: 1;
+  justify-items: space-between;
+  align-items: center;
+  text-align: center;
+  line-height: normal;
+}
+
+.homepage_content {
+  margin-right: 10px;
+}
+
+.homepage_links_container {
+  border: #131722;
+}
+
+.homepage_header,
+.homepage_main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.homepage_header {
+  padding-bottom: 35px;
+}
+
+.about_section {
+  padding-bottom: 18px;
+}
+
+.features_section {
+  padding-bottom: 13px;
+}
+
+.get_started_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 15% 10px 20% 10px;
+  padding: 10px;
+  border: 1px solid burlywood;
+  border-radius: 13px;
 }
