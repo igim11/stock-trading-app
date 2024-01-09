@@ -75,7 +75,7 @@ li,
 }
 
 .form-control:disabled {
-  background-color: #2a2d35;
+  background-color: #202123;
   outline: none;
   color: white;
   border: 1px solid #131722;
@@ -98,6 +98,10 @@ li,
 
 .card {
   background-color: #131722;
+}
+
+.buy-sell-btn {
+  padding-bottom: 5px;
 }
 
 /*style for the homepage*/

@@ -111,14 +111,27 @@ GEM
       ruby2_keywords
     erubi (1.12.0)
     eventmachine (1.0.9.1)
+    faraday (2.8.1)
+      base64
+      faraday-net_http (>= 2.0, < 3.1)
+      ruby2_keywords (>= 0.0.4)
+    faraday-multipart (1.0.4)
+      multipart-post (~> 2)
+    faraday-net_http (3.0.2)
     globalid (1.2.1)
       activesupport (>= 6.1)
     haml (6.3.0)
       temple (>= 0.8.2)
       thor
       tilt
+    hashie (5.0.0)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
+    iex-ruby-client (2.1.0)
+      faraday (>= 0.17)
+      faraday-multipart
+      hashie
+      money (~> 6.0)
     importmap-rails (1.2.3)
       actionpack (>= 6.0.0)
       activesupport (>= 6.0.0)
@@ -157,7 +170,10 @@ GEM
     matrix (0.4.2)
     mini_mime (1.1.5)
     minitest (5.20.0)
+    money (6.16.0)
+      i18n (>= 0.6.4, <= 2)
     msgpack (1.7.2)
+    multipart-post (2.3.0)
     mutex_m (0.2.0)
     net-imap (0.4.8)
       date
@@ -288,6 +304,7 @@ DEPENDENCIES
   capybara
   debug
   devise
+  iex-ruby-client
   importmap-rails
   jbuilder
   letter_opener

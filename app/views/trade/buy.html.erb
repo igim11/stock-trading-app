@@ -1,0 +1,72 @@
+<%= render "tickertape" %>
+<%= render "chart" %>
+<br />
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+      <div class="buy-sell-btn">
+        <%= link_to "Buy", buy_trade_index_path, class:"btn btn-success" %>
+        <%= link_to "Sell", sell_trade_index_path, class:"btn btn-outline-danger" %>
+      </div>
+      <form>
+        <div class="mb-3">
+          <input type="hidden" class="form-control" id="userid" value="1" >
+        </div>
+        <div class="mb-3">
+          <input type="hidden" class="form-control" id="action" value="buy" >
+        </div>
+        <div class="mb-3">
+          <label for="stock" class="form-label">Stock</label>
+          <input type="text" class="form-control" id="stock" aria-describedby="stockHelp">
+          <div id="stockHelp" class="form-text">e.g. AAPL, GOOG, META</div>
+        </div>
+        <div class="mb-3">
+          <label for="price" class="form-label">Price</label>
+          <input type="number" step="0.01" class="form-control" id="price" disabled>
+        </div>
+        <div class="mb-3">
+        <label for="amount" class="form-label">Amount</label>
+          <input type="number" step="0.01" class="form-control" id="amount" aria-describedby="amountHelp">
+          <div id="amountHelp" class="form-text">Available Balance:</div>
+        </div>
+        <div class="mb-3">
+          <label for="shares" class="form-label">Shares</label>
+          <input type="number" step="0.01" class="form-control" id="shares" disabled>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const stockInput = document.getElementById('stock');
+    const priceInput = document.getElementById('price');
+    const amountInput = document.getElementById('amount');
+    const sharesInput = document.getElementById('shares');
+
+    stockInput.addEventListener('change', function() {
+      const stockCode = stockInput.value;
+      const url = `https://cloud.iexapis.com/v1/stock/${stockCode}/quote?token=pk_28432911a33d4e58a546ae4a261bd3dc`;
+
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          priceInput.value = data.latestPrice;
+        })
+        .catch(error => {
+          console.error('Error fetching stock price:', error);
+        });
+    });
+
+    amountInput.addEventListener('input', function() {
+      const amount = parseFloat(amountInput.value);
+      const price = parseFloat(priceInput.value);
+      if (!isNaN(amount) && !isNaN(price) && price !== 0) {
+        sharesInput.value = (amount / price).toFixed(2);
+      } else {
+        sharesInput.value = '';
+      }
+    });
+  });
+</script>
