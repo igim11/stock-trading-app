@@ -13,6 +13,23 @@ class User < ApplicationRecord
 
   before_save :set_status_based_on_approval
 
+   # Method to calculate stocks owned by the user
+   def owned_stocks
+    # Get all buy transactions for the user
+    buy_transactions = transactions.buys.group(:stock_symbol).sum(:quantity)
+
+    # Get all sell transactions for the user
+    sell_transactions = transactions.sells.group(:stock_symbol).sum(:quantity)
+
+    # Subtract sold stocks from bought stocks
+    buy_transactions.each do |stock_symbol, quantity|
+      buy_transactions[stock_symbol] -= sell_transactions[stock_symbol].to_i
+    end
+
+    # Filter out any stocks that have been sold out
+    buy_transactions.select { |_, quantity| quantity > 0 }
+  end
+
   private
 
   def set_default_status
