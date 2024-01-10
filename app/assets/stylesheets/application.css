@@ -16,8 +16,8 @@
 
 @font-face {
   font-family: "Cascadia Code";
-  src: url("CascadiaCode.ttf") format("ttf"),
-    url("CascadiaMono.ttf") format("ttf");
+  src: url("CascadiaCode.ttf") format("truetype"),
+    url("CascadiaMono.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -115,28 +115,25 @@ h5 {
   overflow: hidden;
 }
 
-.homepage_content {
+.homepage_content,
+.get_started_section {
   flex: 1;
-  align-items: center;
   text-align: center;
+  line-height: normal;
+}
+
+.homepage_content {
   background-color: #2a2d35;
   border: 10px solid;
   border-image: linear-gradient(to right, transparent, #000, transparent) 1;
   border-image-slice: 1;
-  border-radius: 25px;
-  line-height: normal;
+  border-radius: 0 25px 25px 0;
+  margin-right: 10px;
 }
 
 .get_started_section {
-  flex: 1;
-  justify-items: space-between;
   align-items: center;
   text-align: center;
-  line-height: normal;
-}
-
-.homepage_content {
-  margin-right: 10px;
 }
 
 .homepage_links_container {
@@ -149,9 +146,6 @@ h5 {
   flex-direction: column;
   align-items: center;
   text-align: center;
-}
-
-.homepage_header {
   padding-bottom: 35px;
 }
 
@@ -161,6 +155,7 @@ h5 {
 
 .features_section {
   padding-bottom: 13px;
+  text-align: left;
 }
 
 .get_started_container {
@@ -168,8 +163,36 @@ h5 {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin: 15% 10px 20% 10px;
+  margin: 13% 0 7% 10px;
   padding: 10px;
   border: 1px solid burlywood;
-  border-radius: 13px;
+  border-radius: 13px 0 0 13px;
+}
+
+.homepage_gif_container {
+  display: flex;
+  margin: 13% 0 7% 10px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.homepage_gif_container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to top left, rgba(0, 0, 0, 0.5), transparent);
+  border-radius: 7px;
+  z-index: 1;
+}
+
+.homepage_gif_container img {
+  width: 188px;
+  height: 188px;
+  border-radius: 7px;
+  z-index: 2;
 }
