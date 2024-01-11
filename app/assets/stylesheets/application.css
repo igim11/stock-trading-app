@@ -56,6 +56,16 @@ li,
   font-size: 10pt;
 }
 
+.error_message-container {
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.error_message_text {
+  font-size: 11;
+  color: orange;
+}
+
 .trade-container {
   display: flex;
   justify-content: center;
@@ -253,27 +263,71 @@ button {
   background-color: orange;
 }
 
+.actions_button {
+  display: flex;
+  margin: 15px auto;
+  font-family: Cascadia Code, monospace;
+  font-weight: bold;
+  color: orange;
+  background-color: rgb(49, 52, 53);
+  border-radius: 5px 0 5px 0;
+}
+
+.actions_button :hover {
+  color: rgb(49, 52, 53);
+  background-color: orange;
+}
+
+.fields_container,
+label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.field {
+  margin: 5px 0 5px 0;
+  padding: 2px;
+  font-size: 10pt;
+  text-align: center;
+}
+
+.remember_me_field {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10pt;
+  gap: 3px;
+}
+
 /*For user and admin login*/
 
 .login_page_container,
 .signup_page_container {
+  margin: 15px auto;
+  padding: 5x 10px 5px 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   border: 1px solid orange;
-  border-radius: 0 13px 13px 0;
+  border-radius: 13px;
+  width: 40%;
+  min-width: max-content;
 }
 
 .already_have_account_text {
-  margin: 15px 0 2px 5px;
+  margin: 10px 0 0 5px;
   font-size: 10pt;
   padding: 0 0 0 5px;
+  text-align: center;
 }
 
 .shared_link {
-  margin: 0 0 0 5px;
+  margin: 0 auto;
   font-size: 10pt;
-  padding: 0 0 0 5px;
+  padding: 0 auto;
   color: orange;
+  text-align: center;
 }
