@@ -76,6 +76,10 @@ li,
   flex-direction: column;
 }
 
+.field {
+  padding: 5px;
+}
+
 .form-control {
   background-color: #2a2d35;
   outline: none;

@@ -9,7 +9,7 @@
         <%= link_to "Sell", transactions_sell_path, class:"btn btn-danger" %>
       </div>
 
-      <%= form_with(model: @transaction, local: true) do |form| %>
+      <%= form_with(model: @transaction, url: transactions_path, method: :post ) do |form| %>
         <% if @transaction.errors.any? %>
           <div style="color: red">
             <h2><%= pluralize(@transaction.errors.count, "error") %> prohibited this @transaction from being saved:</h2>
@@ -35,7 +35,7 @@
 
         <div class="field mb3">
           <%= form.label :amount, class:"form-label" %>
-          <%= form.number_field :total, step: "0.01", class:"form-control", id: "amount" %>
+          <%= form.number_field :amount, step: "0.01", class:"form-control", id: "amount" %>
           <div id="amountHelp" class="form-text">Available to sell:</div>
         </div>
 
@@ -45,15 +45,15 @@
         </div>
       
         <div class="field mb3">
-          <%= form.number_field :user_id, value: 7, class:"form-control" %>
+          <%= form.number_field :user_id, value: 7, class:"form-control", type: :hidden %>
         </div>
 
         <div class="field mb3">
-          <%= form.text_field :action, value: "sell", class:"form-control" %>
+          <%= form.text_field :action, value: "sell", class:"form-control", type: :hidden %>
         </div>
         <br />
         <div>
-          <%= form.submit class:"btn btn-primary" %>
+          <%= form.submit "Submit", class:"btn btn-primary" %>
         </div>
       <% end %>
 

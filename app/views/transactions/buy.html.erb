@@ -5,11 +5,11 @@
   <div class="card">
     <div class="card-body">
       <div class="buy-sell-btn">
-        <%= link_to "Buy", transactions_buy_path, class:"btn btn-outline-success" %>
-        <%= link_to "Sell", transactions_sell_path, class:"btn btn-danger" %>
+        <%= link_to "Buy", transactions_buy_path, class:"btn btn-success" %>
+        <%= link_to "Sell", transactions_sell_path, class:"btn btn-outline-danger" %>
       </div>
 
-      <%= form_with(model: @transaction, local: true) do |form| %>
+      <%= form_with(model: @transaction, url: transactions_path, method: :post ) do |form| %>
         <% if @transaction.errors.any? %>
           <div style="color: red">
             <h2><%= pluralize(@transaction.errors.count, "error") %> prohibited this @transaction from being saved:</h2>
@@ -25,7 +25,7 @@
         <div class="field mb3">
           <%= form.label :stock, class:"form-label" %>
           <%= form.text_field :stock, class:"form-control", id: "stock" %>
-          <div id="stockHelp" class="form-text">Select a stock you own</div>
+          <div id="stockHelp" class="form-text">e.g. AAPL, GOOG, META</div>
         </div>
       
         <div class="field mb3">
@@ -35,8 +35,8 @@
 
         <div class="field mb3">
           <%= form.label :amount, class:"form-label" %>
-          <%= form.number_field :total, step: "0.01", class:"form-control", id: "amount" %>
-          <div id="amountHelp" class="form-text">Available to sell:</div>
+          <%= form.number_field :amount, step: "0.01", class:"form-control", id: "amount" %>
+          <div id="amountHelp" class="form-text">Available balance:</div>
         </div>
 
         <div class="field mb3">
@@ -45,15 +45,15 @@
         </div>
       
         <div class="field mb3">
-          <%= form.number_field :user_id, value: 7, class:"form-control" %>
+          <%= form.number_field :user_id, value: 7, class:"form-control", type: :hidden %>
         </div>
 
         <div class="field mb3">
-          <%= form.text_field :action, value: "sell", class:"form-control" %>
+          <%= form.text_field :action, value: "buy", class:"form-control", type: :hidden %>
         </div>
         <br />
         <div>
-          <%= form.submit class:"btn btn-primary" %>
+          <%= form.submit "Submit", class:"btn btn-primary" %>
         </div>
       <% end %>
 
@@ -67,7 +67,7 @@
     const amountInput = document.getElementById('amount');
     const sharesInput = document.getElementById('shares');
 
-    stockInput.addEventListener('input', function() {
+    stockInput.addEventListener('change', function() {
       const stockCode = stockInput.value;
       const url = `https://cloud.iexapis.com/v1/stock/${stockCode}/quote?token=pk_28432911a33d4e58a546ae4a261bd3dc`;
 
@@ -92,4 +92,3 @@
     });
   });
 </script>
-
