@@ -38,7 +38,7 @@ body {
 }
 
 footer {
-  position: absolute;
+  position: fixed;
   top: 96.5%;
   margin-top: 2px;
   bottom: 0;
@@ -217,16 +217,19 @@ h5 {
   font-size: 9pt;
 }
 
-.admin_login {
+.admin_login,
+.user_login {
   margin: 15px 0 5px 0;
   font-size: 9pt;
 }
 
-.admin_login_button-container {
+.admin_login_button-container,
+.user_login_button-container {
   align-self: end;
 }
 
-.admin_login_button-container a {
+.admin_login_button-container a,
+.user_login_button-container a {
   text-decoration: none;
   color: rgb(168, 45, 168);
   padding: 5px 8px;
@@ -234,7 +237,8 @@ h5 {
   font-weight: bold;
 }
 
-.admin_login_button-container a:hover {
+.admin_login_button-container a:hover,
+.user_login_button-container a:hover {
   color: white;
 }
 
@@ -266,6 +270,7 @@ button {
 .actions_button {
   display: flex;
   margin: 15px auto;
+  padding: 2px;
   font-family: Cascadia Code, monospace;
   font-weight: bold;
   color: orange;
@@ -302,7 +307,6 @@ label {
 }
 
 /*For user and admin login*/
-
 .login_page_container,
 .signup_page_container {
   margin: 15px auto;
@@ -317,7 +321,8 @@ label {
   min-width: max-content;
 }
 
-.already_have_account_text {
+.already_have_account_text,
+.no_account_yet_text {
   margin: 10px 0 0 5px;
   font-size: 10pt;
   padding: 0 0 0 5px;
