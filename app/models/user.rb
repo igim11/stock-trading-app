@@ -6,28 +6,28 @@ class User < ApplicationRecord
   
   has_many :transactions
   
-  validates :status, inclusion: { in: %w[pending approved], message: "%{value} is not a valid status" }
+  # validates :status, inclusion: { in: %w[pending approved], message: "%{value} is not a valid status" }
 
-  before_validation :set_default_status, on: :create
-  after_create :notify_admin
+  # before_validation :set_default_status, on: :create
+  # after_create :notify_admin
 
   before_save :set_status_based_on_approval
 
    # Method to calculate stocks owned by the user
    def owned_stocks
     # Get all buy transactions for the user
-    buy_transactions = transactions.buys.group(:stock_symbol).sum(:quantity)
+    buy_transactions = transactions.buys.group(:stock).sum(:shares)
 
     # Get all sell transactions for the user
-    sell_transactions = transactions.sells.group(:stock_symbol).sum(:quantity)
+    sell_transactions = transactions.sells.group(:stock).sum(:shares)
 
     # Subtract sold stocks from bought stocks
-    buy_transactions.each do |stock_symbol, quantity|
-      buy_transactions[stock_symbol] -= sell_transactions[stock_symbol].to_i
+    buy_transactions.each do |stock, shares|
+      buy_transactions[stock] -= sell_transactions[stock].to_i
     end
 
     # Filter out any stocks that have been sold out
-    buy_transactions.select { |_, quantity| quantity > 0 }
+    buy_transactions.select { |_, shares| shares > 0 }
   end
 
   private

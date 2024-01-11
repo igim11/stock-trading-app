@@ -21,15 +21,10 @@ Rails.application.routes.draw do
 
   devise_for :users
   get 'dashboard', to: 'dashboard#show'
-  resources :trade, only: [:index] do
-    collection do
-      get 'buy'
-      get 'sell'
-    end
-  end
-  resources :transactions, only: [:index]
   
-  get "trade", to: "trade#index"
+  resources :transactions, only: [:index, :create]
+  get '/transactions/sell', to: 'transactions#sell'
+  get '/transactions/buy', to: 'transactions#buy'
 
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

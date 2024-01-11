@@ -35,7 +35,7 @@ body {
   display: flex;
   flex-direction: column;
   font-family: "Cascadia Code", monospace;
-  overflow: hidden;
+  overflow: auto;
 }
 
 footer {
@@ -65,6 +65,10 @@ li,
   width: 100%;
   background: black;
   flex-direction: column;
+}
+
+.field {
+  padding: 5px;
 }
 
 .form-control {
