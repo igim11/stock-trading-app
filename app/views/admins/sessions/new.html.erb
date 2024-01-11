@@ -1,26 +1,36 @@
-<h2>Admin Login</h2>
+<div class="login_page_container">
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <%= image_tag("NebulaTrade Logo.png", alt: "NebulaTrade Logo", size: "130x130") %>
+
+  <div class="error_message-container">
+    <%= render "admins/shared/error_messages", resource: resource %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+  <h2>Admin Login</h2>
 
-  <% if devise_mapping.rememberable? %>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+      <%= f.label :email %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
     </div>
+
+    <div class="field">
+      <%= f.label :password %>
+      <%= f.password_field :password, autocomplete: "current-password" %>
+    </div>
+
+    <% if devise_mapping.rememberable? %>
+      <div class="remember_me_field">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me %>
+      </div>
+    <% end %>
+
+    <div class="actions">
+      <%= f.submit "Login", :class=>"actions_button" %>
+    </div>
+
   <% end %>
 
-  <div class="actions">
-    <%= f.submit "Login" %>
-  </div>
-<% end %>
-
-<%= render "admins/shared/links" %>
+  <p class="no_account_yet_text">Already registered?</p><%= render "admins/shared/links" %>
+</div>
