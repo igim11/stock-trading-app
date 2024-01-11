@@ -17,7 +17,7 @@
       </section>
 
       <section class="features_section">
-        <h5>Key Features</h5>
+        <h5 style= "text-align: center;">Key Features</h5>
         <ul>
           <li>Buy and sell stocks with ease.</li>
           <li>Monitor your portfolio in real-time.</li>
@@ -31,14 +31,21 @@
     <div class="get_started_container">
       <h5>Get Started</h5>
         <p>
-          Ready to start trading? Sign up or log in to your NebulaTrade account
+          Ready to start trading? Sign up or login to your NebulaTrade account
           to explore the exciting world of stock trading.
         </p>
-        <p class="signup_link"><%= link_to 'Sign Up', new_user_registration_path, class: 'button' %></p>
-        <p class="login_link"><%= link_to 'Log In', new_user_session_path, class: 'button' %></p>
+      <div class="button-container">
+        <p class="signup_link"><%= link_to 'Sign up', new_user_registration_path, class: 'button' %></p>
+      </div>  
+      <div class="button-container">
+        <p class="login_link"><%= link_to 'Login', new_user_session_path, class: 'button' %></p>
+      </div>
+      <div class="admin_login_button-container">
+         <p class="admin_login"><%= link_to 'Admin Login', new_admin_session_path, class: 'button' %></p>
+      </div>
     </div>
     <div class="homepage_gif_container">
-      <img src="https://media.giphy.com/media/lTXepVrUf7XBoBGgzW/giphy.gif" style="width: 65%; height: auto;">
+      <img src="https://media.giphy.com/media/lTXepVrUf7XBoBGgzW/giphy.gif">
       <p style="font-size:7pt; padding-top: 4px;">via GIPHY</p>
     </div>
 </div>
