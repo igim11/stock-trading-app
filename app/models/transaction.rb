@@ -1,6 +1,8 @@
 class Transaction < ApplicationRecord
   belongs_to :user
 
+  validates :stock, :shares, :user_id, :action, presence: true
+
   # Scope for buy transactions
   scope :buys, -> { where(action: 'buy') }
 
@@ -10,11 +12,8 @@ class Transaction < ApplicationRecord
   # Scope for transactions by user
   scope :by_user, ->(user_id) { where(user_id: user_id) }
 
-  validates :stock, presence: true
-  validates :amount, presence: true
-  validates :user_id, presence: true
-  validates :action, presence: true
-  validate :validate_stock_code_exists
+  before_validation :validate_stock_code_exists
+
   validate :check_amount_against_cash, on: :create
   validate :check_amount_against_stock, on: :create
 
@@ -31,13 +30,16 @@ class Transaction < ApplicationRecord
   end
 
   def check_amount_against_cash
-    if stock.present? && action == 'buy' && amount > user.cash  # Assuming 'action' and 'user' are associated fields
-      errors.add(:amount, "cannot be more than available balance")
+    if stock.present? && action == 'buy' && shares.present?
+      stock_price = IEX::Api::Client.new.quote(stock).latest_price
+      if (shares * stock_price) > user.cash
+        errors.add(:amount, "cannot be more than available balance")
+      end
     end
   end
 
   def check_amount_against_stock
-    if stock.present? && action == 'sell' && amount > user.transactions.where(stock: stock).sum(:shares) * IEX::Api::Client.new.quote(stock).latest_price
+    if stock.present? && shares.present? && action == 'sell' && shares > user.transactions.where(stock: stock).sum(:shares)
       errors.add(:amount, "cannot be more than what you own")
     end
   end

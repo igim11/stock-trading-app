@@ -4,3 +4,35 @@
   <a href="/trade">Trade</a>
   <a href="/transactions">Transactions</a>
 </div>
+
+<div class="container">
+  <table class="table table-striped table-dark table-hover caption-top">
+    <caption>My Portfolio</caption>
+    <thead class="table-dark">
+      <tr>
+        <th>Stock</th>
+        <th>Shares</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @portfolio.each do |stock, data| %>
+        <% if data[:shares] > 0 %>
+          <tr>
+            <td><%= stock %></td>
+            <td><%= number_with_precision(data[:shares], precision: 2) %></td>
+            <td><%= number_with_precision(data[:value], precision: 2) %></td>
+          </tr>
+        <% end %>
+      <% end %>
+      <tr class="portfolio-cash">
+        <td colspan="2">Cash</td>
+        <td><%= number_with_precision(@user_cash, precision: 2) %></td>
+      </tr>
+      <tr class="portfolio-total">
+        <td colspan="2"><strong>Total Portfolio Value</strong></td>
+        <td><strong><%= number_with_precision(@total_portfolio_value, precision: 2) %></strong></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
