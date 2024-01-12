@@ -4,12 +4,14 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   
+  validates :first_name, :last_name, :user_id, presence: true
+
   has_many :transactions
   
   # validates :status, inclusion: { in: %w[pending approved], message: "%{value} is not a valid status" }
 
-  # before_validation :set_default_status, on: :create
-  # after_create :notify_admin
+  before_validation :set_default_status, on: :create
+  after_create :notify_admin
 
   before_save :set_status_based_on_approval
 

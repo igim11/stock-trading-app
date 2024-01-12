@@ -1,16 +1,26 @@
-<h2>Forgot your password?</h2>
+<div class="forgot_pw_container">
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "admins/shared/error_messages", resource: resource %>
+  <%= image_tag("NebulaTrade Logo.png", alt: "NebulaTrade Logo", size: "150x150") %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="error_message-container">
+    <%= render "admins/shared/error_messages", resource: resource %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
+  <h3>Forgot your password?</h3>
 
-<%= render "admins/shared/links" %>
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    
+  <div class="fields_container">
+    <div class="field">
+      <%= f.label :email %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Send me reset password instructions", :class=>"actions_button" %>
+    </div>
+  <% end %>
+  </div>
+
+  <%= render "admins/shared/links" %>
+</div>
