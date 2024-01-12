@@ -19,7 +19,9 @@ Rails.application.routes.draw do
     end
   end
 
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations'
+  }
   get 'dashboard', to: 'dashboard#show'
   
   resources :transactions, only: [:index, :create]

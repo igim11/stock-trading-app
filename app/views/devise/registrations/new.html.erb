@@ -35,7 +35,7 @@
       <%= f.label :password %>
       <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> characters minimum)</em><br />
-      <% end %><br />
+      <% end %>
       <%= f.password_field :password, autocomplete: "new-password" %>
     </div>
 
@@ -49,5 +49,6 @@
       <%= f.submit "Sign up", :class=>"actions_button" %>
     </div>
   <% end %>
+
+  <p class="already_have_account_text">Already have an account?</p><%= render "devise/shared/links" %>
 </div>
-  <p class="already_have_account_text">Already have an account? </p><%= render "devise/shared/links" %>
