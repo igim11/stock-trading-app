@@ -15,6 +15,8 @@ class Transaction < ApplicationRecord
   validates :user_id, presence: true
   validates :action, presence: true
   validate :validate_stock_code_exists
+  validate :check_amount_against_cash, on: :create
+  validate :check_amount_against_stock, on: :create
 
   private
 
@@ -25,6 +27,18 @@ class Transaction < ApplicationRecord
       rescue IEX::Errors::SymbolNotFoundError
         errors.add(:stock, "does not exist")
       end
+    end
+  end
+
+  def check_amount_against_cash
+    if stock.present? && action == 'buy' && amount > user.cash  # Assuming 'action' and 'user' are associated fields
+      errors.add(:amount, "cannot be more than available balance")
+    end
+  end
+
+  def check_amount_against_stock
+    if stock.present? && action == 'sell' && amount > user.transactions.where(stock: stock).sum(:shares) * IEX::Api::Client.new.quote(stock).latest_price
+      errors.add(:amount, "cannot be more than what you own")
     end
   end
 end

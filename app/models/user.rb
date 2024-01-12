@@ -13,21 +13,36 @@ class User < ApplicationRecord
 
   before_save :set_status_based_on_approval
 
-   # Method to calculate stocks owned by the user
-   def owned_stocks
-    # Get all buy transactions for the user
-    buy_transactions = transactions.buys.group(:stock).sum(:shares)
+  # Method to calculate stocks owned by the user and their value
+  def portfolio_value
+    client = IEX::Api::Client.new(
+      publishable_token: 'pk_28432911a33d4e58a546ae4a261bd3dc',
+      secret_token: 'sk_91c66919e98d4d5093a8872d5077f931',
+      endpoint: 'https://cloud.iexapis.com/v1'
+    )
 
-    # Get all sell transactions for the user
-    sell_transactions = transactions.sells.group(:stock).sum(:shares)
-
-    # Subtract sold stocks from bought stocks
-    buy_transactions.each do |stock, shares|
-      buy_transactions[stock] -= sell_transactions[stock].to_i
+    portfolio = {}
+    transactions.each do |transaction|
+      stock = transaction.stock
+      shares = transaction.shares
+      price = client.price(stock)
+      if transaction.action == 'buy'
+        if portfolio[stock]
+          portfolio[stock][:shares] += shares
+          portfolio[stock][:value] += shares * price
+        else
+          portfolio[stock] = { shares: shares, value: shares * price }
+        end
+      elsif transaction.action == 'sell'
+        if portfolio[stock]
+          portfolio[stock][:shares] -= shares
+          portfolio[stock][:value] -= shares * price
+        else
+          portfolio[stock] = { shares: -shares, value: -shares * price }
+        end
+      end
     end
-
-    # Filter out any stocks that have been sold out
-    buy_transactions.select { |_, shares| shares > 0 }
+    portfolio
   end
 
   private
