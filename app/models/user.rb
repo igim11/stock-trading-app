@@ -4,24 +4,19 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   
-  validates :first_name, :last_name, :user_id, presence: true
+  # validates :first_name, :last_name, :user_id, presence: true
 
   has_many :transactions
   
   # validates :status, inclusion: { in: %w[pending approved], message: "%{value} is not a valid status" }
 
-  before_validation :set_default_status, on: :create
-  after_create :notify_admin
+  # before_validation :set_default_status, on: :create
+  # after_create :notify_admin
 
-  before_save :set_status_based_on_approval
+  # before_save :set_status_based_on_approval
 
-  # Method to calculate stocks owned by the user and their value
   def portfolio_value
-    client = IEX::Api::Client.new(
-      publishable_token: 'pk_28432911a33d4e58a546ae4a261bd3dc',
-      secret_token: 'sk_91c66919e98d4d5093a8872d5077f931',
-      endpoint: 'https://cloud.iexapis.com/v1'
-    )
+    client = IEX::Api::Client.new
 
     portfolio = {}
     transactions.each do |transaction|
@@ -45,6 +40,22 @@ class User < ApplicationRecord
       end
     end
     portfolio
+  end
+
+  def all_transactions
+  transactions.order(created_at: :desc).map do |transaction|
+    {
+      stock: transaction.stock,
+      shares: transaction.shares,
+      action: transaction.action,
+      amount: transaction.amount,
+      created_at: transaction.created_at
+    }
+  end
+end
+
+  def owns_stock?(stock)
+    transactions.where(stock: stock).exists?
   end
 
   private

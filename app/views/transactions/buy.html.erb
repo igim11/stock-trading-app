@@ -34,18 +34,18 @@
         </div>
 
         <div class="field mb3">
-          <%= form.label :amount, class:"form-label" %>
-          <%= form.number_field :amount, step: "0.01", class:"form-control", id: "amount" %>
-          <div id="amountHelp" class="form-text">Available balance:</div>
+          <%= form.label :shares, class:"form-label" %>
+          <%= form.number_field :shares, step: "0.01", min: "0.01", class:"form-control", id: "shares" %>
+          <div id="sharesHelp" class="form-text">Available balance:</div>
         </div>
 
         <div class="field mb3">
-          <%= form.label :shares, class:"form-label" %>
-          <%= form.number_field :shares, step: "0.01", class:"form-control", id: "shares", disabled: true %>
+          <%= form.label :amount, class:"form-label" %>
+          <%= form.number_field :amount, step: "0.01", class:"form-control", id: "amount", disabled: true %>
         </div>
       
         <div class="field mb3">
-          <%= form.number_field :user_id, value: 7, class:"form-control", type: :hidden %>
+          <%= form.number_field :user_id, value: 1, class:"form-control", type: :hidden %>
         </div>
 
         <div class="field mb3">
@@ -81,13 +81,14 @@
         });
     });
 
-    amountInput.addEventListener('input', function() {
+    sharesInput.addEventListener('input', function() {
       const amount = parseFloat(amountInput.value);
       const price = parseFloat(priceInput.value);
-      if (!isNaN(amount) && !isNaN(price) && price !== 0) {
-        sharesInput.value = (amount / price).toFixed(2);
+      const shares = parseFloat(sharesInput.value);
+      if (!isNaN(price) && !isNaN(shares) && shares !== 0) {
+        amountInput.value = (shares * price).toFixed(2);
       } else {
-        sharesInput.value = '';
+        amountInput.value = '';
       }
     });
   });

@@ -66,6 +66,7 @@ li,
   color: orange;
 }
 
+/*style for the trade page*/
 .trade-container {
   display: flex;
   justify-content: center;
@@ -115,6 +116,19 @@ li,
 
 .buy-sell-btn {
   padding-bottom: 5px;
+}
+
+/*style for the portfolio*/
+.portfolio-cash {
+  background-color: blue !important;
+}
+
+.portfolio-total {
+  background-color: #131722;
+}
+
+caption {
+  color: white;
 }
 
 /*style for the homepage*/

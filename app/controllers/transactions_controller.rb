@@ -12,7 +12,7 @@ class TransactionsController < ApplicationController
 
   def create
     @transaction = Transaction.new(transaction_params)
-    populate_price_and_shares if @transaction.valid?  # Call the method to populate price and shares
+    populate_price_and_amount if @transaction.valid?  # Call the method to populate price and shares
 
     respond_to do |format|
       if @transaction.save
@@ -35,13 +35,13 @@ end
 
   private
 
-  def populate_price_and_shares
-    if @transaction.amount.present?
+  def populate_price_and_amount
+    if @transaction.shares.present?
       stock_code = params[:transaction][:stock]
       data = IEX::Api::Client.new.quote(stock_code)
   
       @transaction.price = data.latest_price
-      @transaction.shares = (@transaction.amount / @transaction.price).round(2)
+      @transaction.amount = @transaction.shares * @transaction.price
     end
   end
 
