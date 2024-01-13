@@ -1,6 +1,6 @@
 class Admin::SessionsController < ApplicationController
-  before_action :require_no_admin, only: [:new, :create]
-  before_action :require_admin, only: [:destroy]
+  # before_action :require_no_admin, only: [:new, :create]
+  # before_action :require_admin, only: [:destroy]
   
   def new
   end

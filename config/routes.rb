@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
-  get 'dashboard', to: 'dashboard#show'
+  get 'dashboard', to: 'dashboard#show', as: 'user_root'
   
   resources :transactions, only: [:index, :create]
   get '/transactions/sell', to: 'transactions#sell'
