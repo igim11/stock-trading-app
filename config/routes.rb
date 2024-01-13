@@ -24,7 +24,7 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     destroy: 'users/sessions'
   }
-  get 'dashboard', to: 'dashboard#show'
+  get 'dashboard', to: 'dashboard#show', as: 'user_root'
   
   resources :transactions, only: [:index, :create]
   get '/transactions/sell', to: 'transactions#sell'
