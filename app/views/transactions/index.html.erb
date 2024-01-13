@@ -13,7 +13,7 @@
       </tr>
     </thead>
     <tbody>
-      <% User.find(1).all_transactions.each do |transaction| %>
+      <% current_user.all_transactions.each do |transaction| %>
         <tr>
           <td><%= transaction[:stock] %></td>
           <td><%= transaction[:shares] %></td>

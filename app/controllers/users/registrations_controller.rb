@@ -51,9 +51,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :user_id, :email, :password, :password_confirmation])
   # end
 
-  # # The path used after sign up.
-  def after_sign_up_path_for(resource)
+
+  def after_sign_in_path_for (resource)
     dashboard_path
+  end
+
+  def after_sign_out_path_for(resource)
+    new_user_session_path
+  end
+
+    # # The path used after sign up.
+  def configure_sign_up_params
+    devise_parameter_sanitizer.permit(:sign_in, keys: [:first_name, :last_name, :user_id, :email, :password, :confirm_password])
   end
 
   # The path used after sign up for inactive accounts.
