@@ -9,6 +9,7 @@
   <h3>Resend confirmation instructions</h3>
 
   <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+    
     <div class="fields_container">
       <div class="field">
         <%= f.label :email %><br />
