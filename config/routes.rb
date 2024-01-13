@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   devise_for :admins
   resources :admins do
-    member do
+    collection do
       get 'new_user'
       post 'create_user'
       get 'edit_user'
@@ -20,7 +20,9 @@ Rails.application.routes.draw do
   end
 
   devise_for :users, controllers: {
-    registrations: 'users/registrations'
+    registrations: 'users/registrations',
+    sessions: 'users/sessions',
+    destroy: 'users/sessions'
   }
   get 'dashboard', to: 'dashboard#show', as: 'user_root'
   
