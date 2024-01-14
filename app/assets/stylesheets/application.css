@@ -81,6 +81,24 @@ li,
   background-color: #2a2d35;
 }
 
+/* style for navbar */
+.navbar-custom {
+  background-color: #131722;
+}
+
+.navbar-logo {
+  width: 60px;
+  height: auto;
+}
+
+.navbar-nav .nav-link {
+  color: white;
+}
+
+.navbar-toggler {
+  background-color: white;
+}
+
 /*style for the trade page*/
 .trade-container {
   display: flex;
@@ -169,7 +187,7 @@ h5 {
 }
 
 .homepage_content {
-  background-color: #2a2d35;
+  background-color: #131722;
   border: 10px solid;
   border-image: linear-gradient(to right, transparent, #000, transparent) 1;
   border-image-slice: 1;
