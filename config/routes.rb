@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-  devise_for :admins
+  devise_for :admins 
   resources :admins do
     collection do
       get 'new_user'
@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   resources :transactions, only: [:index, :create]
   get '/transactions/sell', to: 'transactions#sell'
   get '/transactions/buy', to: 'transactions#buy'
+  get '/portfolio', to: 'portfolio#index'
 
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
