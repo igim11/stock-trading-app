@@ -10,10 +10,10 @@
       <% if user_signed_in? %>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <%= link_to "Edit Profile", edit_user_registration_path, class:"nav-link" %>
+              <%= link_to "Profile", edit_user_registration_path, class:"nav-link" %>
             </li>
             <li class="nav-item">
-              <%= link_to "Portfolio", portfolio_path, class:"nav-link" %>
+              <%= link_to "My Portfolio", portfolio_path, class:"nav-link" %>
             </li>
             <li class="nav-item">
               <%= link_to "Trade", transactions_buy_path, class:"nav-link" %>
@@ -24,19 +24,19 @@
         <% end %>
       <% if admin_signed_in? %>
         <li class="nav-item">
-          <%= link_to "Edit Profile", edit_admin_registration_path, class:"nav-link" %>
+          <%= link_to "Admin Profile", edit_admin_registration_path, class:"nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "All Users", admins_path, class:"nav-link" %>
+          <%= link_to "All Users", show_user_admins_path, class:"nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "New User", new_user_admin_path, class:"nav-link" %>
+          <%= link_to "Create New User", new_user_admins_path, class:"nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Pending Sign-ups", pending_trader_signups_admin_path, class:"nav-link" %>
+          <%= link_to "Pending Sign-ups", pending_trader_signups_admins_path, class:"nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "User Transactions", all_transactions_admin_path, class:"nav-link" %>
+          <%= link_to "User Transactions", all_transactions_admins_path, class:"nav-link" %>
         </li>
       <% end %>
       </ul>

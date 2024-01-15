@@ -1,10 +1,7 @@
-<h1>Editing admin</h1>
+<div class="edit_page_container">
 
-<%= render "form", admin: @admin %>
+  <h3>Admin Info</h3>
 
-<br>
+<%= render "admins/form", admin: @admin %>
 
 <div>
-  <%= link_to "Show this admin", @admin %> |
-  <%= link_to "Back to admins", admins_path %>
-</div>

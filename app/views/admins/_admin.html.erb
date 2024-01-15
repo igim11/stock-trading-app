@@ -1,24 +1,6 @@
 <div class="admin_page_container">
 
-<%= image_tag("NebulaTrade Logo.png", alt: "NebulaTrade Logo", size: "150x150") %>
-
-  # <head>
-  #   <div id="<%= dom_id admin %>">
-  #   </div>
-  # </head>
-
   <body>
-    <header>
-      <nav>
-        <%= link_to 'Home', admins_path, :class=>"nav_links" %>
-        <%= link_to 'All Users', admins_path, :class=>"nav_links" %>
-        <%= link_to 'New User', new_user_admin_path, :class=>"nav_links" %>
-        <%= link_to 'Pending Sign-ups', pending_trader_signups_admin_path, :class=>"nav_links" %>
-        <%= link_to 'All Transactions', all_transactions_admin_path, :class=>"nav_links" %>
-        <%= button_to 'Logout', destroy_user_session_path, :class=>"nav_links", method: :delete %>
-      </nav>
-    </header>
-
       <main>
         <section>
           <h2>Welcome, <%= current_user.first_name %>!</h2>
