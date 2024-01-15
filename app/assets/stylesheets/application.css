@@ -66,19 +66,46 @@ li,
   color: orange;
 }
 
-.nav_links {
+.nav_link {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
   font: 10pt;
   color: yellow;
+}
+
+.nav_link:hover {
+  color: orange;
+  background-color: #2a2d35;
+}
+
+/* style for navbar */
+.navbar-custom {
+  background-color: #131722;
+}
+
+.navbar-logo {
+  width: 60px;
+  height: auto;
+}
+
+.navbar-nav .nav-link {
+  color: white;
+  font: 10pt;
+}
+
+.navbar-nav .nav-link:hover {
+  color: orange;
+  background-color: #2a2d35;
+}
+
+.navbar-toggler {
   background-color: white;
 }
 
-.nav_links:hover {
-  color: orange;
-  background-color: #2a2d35;
+.navbar-toggler:hover {
+  background-color: orange;
 }
 
 /*style for the trade page*/
@@ -169,7 +196,7 @@ h5 {
 }
 
 .homepage_content {
-  background-color: #2a2d35;
+  background-color: #131722;
   border: 10px solid;
   border-image: linear-gradient(to right, transparent, #000, transparent) 1;
   border-image-slice: 1;

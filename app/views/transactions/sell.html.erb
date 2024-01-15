@@ -24,7 +24,7 @@
       
         <div class="field mb3">
           <%= form.label :stock, class:"form-label" %>
-          <%= form.text_field :stock, class:"form-control", id: "stock" %>
+          <%= form.select :stock, options_for_select(@portfolio.select { |_, data| data[:shares] > 0 }.keys), {}, class: "form-control", id: "stock" %>
           <div id="stockHelp" class="form-text">Select a stock you own</div>
         </div>
       
@@ -36,7 +36,7 @@
         <div class="field mb3">
           <%= form.label :shares, class:"form-label" %>
           <%= form.number_field :shares, step: "0.01", min: "0.01", class:"form-control", id: "shares" %>
-          <div id="sharesHelp" class="form-text">Available to sell:</div>
+          <div id="sharesHelp" class="form-text">Available to sell: <span id="availableShares"> </span></div>
         </div>
 
         <div class="field mb3">
@@ -45,14 +45,14 @@
         </div>
       
         <div class="field mb3">
-          <%= form.number_field :user_id, value: 1, class:"form-control", type: :hidden %>
+          <%= form.number_field :user_id, value: current_user.id, class:"form-control", type: :hidden %>
         </div>
 
         <div class="field mb3">
           <%= form.text_field :action, value: "sell", class:"form-control", type: :hidden %>
         </div>
         <br />
-        <div>
+        <div class="field mb3">
           <%= form.submit "Submit", class:"btn btn-primary" %>
         </div>
       <% end %>
@@ -69,7 +69,7 @@
 
     stockInput.addEventListener('input', function() {
       const stockCode = stockInput.value;
-      const url = `https://cloud.iexapis.com/v1/stock/${stockCode}/quote?token=pk_28432911a33d4e58a546ae4a261bd3dc`;
+      const url = `https://cloud.iexapis.com/v1/stock/${stockCode}/quote?token=pk_8ffc8b1159ea41f08c9167e7d1cea3c7`;
 
       fetch(url)
         .then(response => response.json())
@@ -78,6 +78,17 @@
         })
         .catch(error => {
           console.error('Error fetching stock price:', error);
+        });
+
+      const availableSharesSpan = document.getElementById('availableShares');
+
+      fetch(`/get_available_shares?stock=${stockCode}`)
+        .then(response => response.json())
+        .then(data => {
+          availableSharesSpan.innerText = data.availableShares;
+        })
+        .catch(error => {
+          console.error('Error fetching available shares:', error);
         });
     });
 
