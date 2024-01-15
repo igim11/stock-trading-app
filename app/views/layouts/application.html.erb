@@ -19,9 +19,7 @@
     <% end %>
 
     <% if user_signed_in? %>
-      You are signed in <%= current_user.email %>
-    <% else %>
-      You are not signed in
+      Hello, <%= current_user.email %>!
     <% end %>
 
     <%= yield %>
