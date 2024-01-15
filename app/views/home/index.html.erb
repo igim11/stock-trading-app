@@ -1,10 +1,13 @@
+    <% if !user_signed_in? %>
+      Welcome!
+    <% end %>
+
 <div class="homepage_container">
   <div class="homepage_content">
     <header class="homepage_header">
       <%= image_tag("NebulaTrade Logo-noText.png", alt: "NebulaTrade Logo", size: "150x150") %>
       <h2 style="color: yellow;">NebulaTrade</h2>
       <p>Your Stock Trading Platform</p>
-
     </header>
 
     <main class="homepage_main">
@@ -46,6 +49,7 @@
       </div>
     </div>
     <div class="homepage_gif_container">
+      <%# <%= image_tag("ChibiNebula_SoonJinGraphics.png", alt: "ChibiNebula_SoonJinGraphics") %>
       <img src="https://media.giphy.com/media/lTXepVrUf7XBoBGgzW/giphy.gif">
       <p style="font-size:7pt; padding-top: 4px;">via GIPHY</p>
     </div>

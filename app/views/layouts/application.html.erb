@@ -24,17 +24,13 @@
         <%= render "layouts/alert" %>
       <% end %>
 
-      <% if user_signed_in? %>
-        User: <%= current_user.email %>
-      <% else %>
-        User not signed in
-      <% end %>
+    <% if user_signed_in? %>
+      Hello, <%= current_user.email %>!
+    <% end %>
 
-      <% if admin_signed_in? %>
-        Admin: <%= current_admin.email %>
-      <% else %>
-        Admin not signed in
-      <% end %>
+    <% if admin_signed_in? %>
+      Hi, Admin: <%= current_admin.email %>!
+    <% end %>
 
       <%= yield %>
     </div>
