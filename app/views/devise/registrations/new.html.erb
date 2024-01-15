@@ -43,6 +43,18 @@
       <%= f.label :password_confirmation %>
       <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
     </div>
+
+    <div class="field">
+      <%= f.text_field :status, type: :hidden, value: "pending" %>
+    </div>
+
+    <div class="field">
+      <%= f.hidden_field :admin_approved, value: false %>
+    </div
+
+    <div class="field">
+      <%= f.number_field :cash, type: :hidden, value: 0 %>
+    </div>
   </div>
 
     <div class="actions">

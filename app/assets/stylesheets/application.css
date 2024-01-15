@@ -66,17 +66,16 @@ li,
   color: orange;
 }
 
-.nav_links {
+.nav_link {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
   font: 10pt;
   color: yellow;
-  background-color: white;
 }
 
-.nav_links:hover {
+.nav_link:hover {
   color: orange;
   background-color: #2a2d35;
 }
@@ -93,10 +92,20 @@ li,
 
 .navbar-nav .nav-link {
   color: white;
+  font: 10pt;
+}
+
+.navbar-nav .nav-link:hover {
+  color: orange;
+  background-color: #2a2d35;
 }
 
 .navbar-toggler {
   background-color: white;
+}
+
+.navbar-toggler:hover {
+  background-color: orange;
 }
 
 /*style for the trade page*/

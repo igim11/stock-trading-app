@@ -15,6 +15,17 @@ class User < ApplicationRecord
 
   # before_save :set_status_based_on_approval
 
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :user_id, presence: true, uniqueness: true
+  validates :admin_approved, inclusion: { in: [true, false] }
+  validates :status, presence: true
+  validates :cash, presence: true, numericality: { greater_than_or_equal_to: 0 }
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_in, keys: [:first_name, :last_name, :user_id, :email, :password, :confirm_password, :cash, :admin_approved, :status])
+  end
+
   def portfolio_value
     client = IEX::Api::Client.new
 
@@ -56,6 +67,12 @@ end
 
   def owns_stock?(stock)
     transactions.where(stock: stock).exists?
+  end
+
+  def available_shares(stock)
+    total_shares = transactions.where(stock: stock, action: 'buy').sum(:shares)
+    sold_shares = transactions.where(stock: stock, action: 'sell').sum(:shares)
+    total_shares - sold_shares
   end
 
   private

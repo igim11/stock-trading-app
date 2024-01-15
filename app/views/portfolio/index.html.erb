@@ -1,10 +1,3 @@
-<h1>My Dashboard</h1>
-
-  <div>
-    <a href="/trade">Trade</a>
-    <a href="/transactions">Transactions</a>
-  </div>
-
   <div class="container">
     <table class="table table-striped table-dark table-hover caption-top">
       <caption>My Portfolio</caption>
@@ -35,4 +28,14 @@
         </tr>
       </tbody>
     </table>
+  </div>
+
+  <div class="container">
+    <%= form_with(model: current_user, url: update_cash_user_path, method: :patch) do |form| %>
+      <div class="field">
+        <%= form.label :cash, 'Deposit Cash:' %>
+        <%= form.number_field :cash, step: "0.01", value: nil %>
+        <%= form.submit 'Deposit', class: 'btn btn-primary' %>
+      </div>
+    <% end %>
   </div>
