@@ -36,12 +36,13 @@
         <div class="field mb3">
           <%= form.label :shares, class:"form-label" %>
           <%= form.number_field :shares, step: "0.01", min: "0.01", class:"form-control", id: "shares" %>
-          <div id="sharesHelp" class="form-text">Available balance: <%= current_user.cash %></div>
+          
         </div>
 
         <div class="field mb3">
           <%= form.label :amount, class:"form-label" %>
           <%= form.number_field :amount, step: "0.01", class:"form-control", id: "amount", disabled: true %>
+          <div id="sharesHelp" class="form-text">Available balance: $ <%= current_user.cash %></div>
         </div>
       
         <div class="field mb3">
