@@ -1,8 +1,10 @@
 <div class=container welcome-container>
   <div class="card text-center welcome-card">
     <div class="card-body">
-      <h2 class="card-title">Welcome, <%= current_admin.first_name %>!</h2>
-      <p class="card-text">This is your admin dashboard. Manage users, approve sign-ups, and track transactions.</p>
+      <h2 class="card-title">Welcome, <%= current_admin.email %>!</h2>
+      <p class="card-text">This is your admin dashboard.</p>
+      <p>Approve sign-ups, manage users, and track transactions.</p>
+      <%= image_tag("ChibiNebula_SoonJinGraphics.png", alt: "ChibiNebula_SoonJinGraphics.png", size: "150x150") %>
     </div>
   </div>
 </div>

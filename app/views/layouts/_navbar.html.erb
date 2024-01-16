@@ -1,8 +1,16 @@
 <nav class="navbar navbar-custom navbar-expand-lg">
   <div class="container-fluid">
-    <%= link_to dashboard_path, class:"navbar-brand" do %>
+
+<% if current_admin %>
+    <%= link_to admins_path, class:"navbar-brand" do %>
       <%= image_tag("NebulaTrade Logo-noText.png", alt: "NebulaTrade Logo", class: "navbar-logo") %>
     <% end %>
+<% else %>
+  <%= link_to portfolio_path, class: "navbar-brand" do %>
+    <%= image_tag("NebulaTrade Logo-noText.png", alt: "NebulaTrade Logo", class: "navbar-logo") %>
+  <% end %>
+<% end %>
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -27,13 +35,13 @@
           <%= link_to "Profile", edit_admin_registration_path, class:"nav-link" %>
         </li>
         <li class="nav-item">
+          <%= link_to "Pending Registrations", pending_trader_signups_admins_path, class:"nav-link" %> 
+        </li>
+        <li class="nav-item">
           <%= link_to "All Users", show_user_admins_path, class:"nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Create New User", new_user_admins_path, class:"nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Pending Sign-ups", pending_trader_signups_admins_path, class:"nav-link" %>
+          <%= link_to "Create User", new_user_admins_path, class:"nav-link" %>
         </li>
         <li class="nav-item">
           <%= link_to "User Transactions", all_transactions_admins_path, class:"nav-link" %>
@@ -43,12 +51,12 @@
       <ul class="navbar-nav ms-auto">
         <% if user_signed_in? %>
         <li class="nav-item nav-balance">
-          <span class="nav-link">Balance: $<%= current_user.cash %></span>
+          <span class="nav-link", style="color:orange">Balance: $<%= current_user.cash %></span>
         </li>
-        <% end %>
+        <% end %> 
         <% if user_signed_in? || admin_signed_in? %>
           <li class="nav-item">
-            <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class:"nav-link" %>
+            <%= button_to "| Sign Out", destroy_user_session_path, method: :delete, class:"nav-link" %>
           </li>
         <% end %>
         </ul>
