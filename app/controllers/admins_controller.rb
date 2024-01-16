@@ -3,7 +3,6 @@ class AdminsController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    @users = User.all
   end 
 
   def new_user
@@ -13,7 +12,7 @@ class AdminsController < ApplicationController
   def create_user
     @user = User.new(user_params)
     if @user.save
-      redirect_to admins_path, notice: 'User was successfully created.'
+      redirect_to admins_path, notice: 'Account was successfully created.'
     else
       render :new_user
     end
@@ -26,20 +25,20 @@ class AdminsController < ApplicationController
   def update_user
     @user = User.find(params[:id])
     if @user.update(user_params)
-      redirect_to admins_path, notice: 'User was successfully updated.'
+      redirect_to admins_path, notice: 'User details successfully updated.'
     else
       render :edit_user
     end
   end
 
   def show_user
-    @user = User.find(params[:id])
+    @user = User.all
   end
 
   def approve_user
     @user = User.find(params[:id])
-    @user.update(status: 'approved')
-    redirect_to admins_path, notice: 'User was successfully approved.'
+    @user.update(status: 'Approved')
+    redirect_to admins_path, notice: 'User was approved.'
   end
 
   def pending_trader_signups

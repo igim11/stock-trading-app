@@ -67,8 +67,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_16_080219) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "admin_approved"
-    t.decimal "cash"
     t.string "status"
+    t.decimal "cash"
     t.string "first_name"
     t.string "last_name"
     t.string "user_id"

@@ -1,16 +1,23 @@
 <div class="edit_page_container">
 
-<%= image_tag("NebulaTrade Logo.png", alt: "NebulaTrade Logo", size: "150x150") %>
-
   <div class="error_message-container">
     <%= render "admins/shared/error_messages", resource: resource %>
   </div>
 
-  <h3>Edit <%= resource_name.to_s.humanize %></h3>
+  <h3>Update Account Info</h3>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
    
     <div class="fields_container">
+
+      <div class="field">
+        <strong>Name</strong><br /> <%= current_user.first_name %> <%= current_user.last_name %>
+      </div>
+
+      <div class="field">
+        <strong>User ID</strong><br /> <%= current_user.user_id %>
+      </div>
+
       <div class="field">
         <%= f.label :email %>
         <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -21,7 +28,7 @@
       <% end %>
 
       <div class="field">
-        <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+        <%= f.label :password %> <i style="font-size:9pt">(leave blank if you don't want to change it)</i><br />
         <%= f.password_field :password, autocomplete: "new-password" %>
         <% if @minimum_password_length %>
           <br />
@@ -35,7 +42,7 @@
       </div>
 
       <div class="field">
-        <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+        <%= f.label :current_password %> <i style="font-size:9pt">(Input password to confirm changes.)</i><br />
         <%= f.password_field :current_password, autocomplete: "current-password" %>
       </div>
     </div>
@@ -44,13 +51,11 @@
         <%= f.submit "Update", :class=>"actions_button"%>
       </div>
     <% end %>
+</div>
   
-
+<div class="delete_page_container">
   <div class="cancel_account_container">
-    <h3>Cancel my account</h3>
 
-    <p class="cancel_account_text">>Unhappy?</p> <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
-
-    <%= link_to "Back", :back %>
+    <h5 class="cancel_account_text", style="color:white">Unhappy with our services?</h5> <%= button_to "Delete Account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, :class=>"actions_button" %>
   </div>
 </div>
