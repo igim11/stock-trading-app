@@ -108,6 +108,23 @@ li,
   background-color: orange;
 }
 
+/*style for the dashboard page*/
+.welcome-container {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.welcome-card {
+  color: white;
+  border: 2px solid orange;
+  margin: auto;
+  text-align: center;
+  padding: 20px;
+}
+
 /*style for the trade page*/
 .trade-container {
   display: flex;

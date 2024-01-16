@@ -1,4 +1,22 @@
-<div class=container>
-  <h2>Welcome, <%= current_user.first_name %>!</h2>
-  <p>This is your dashboard. Check your portfolio. Trade stocks. View your transactions.</p>
-</div>
+<% if user_signed_in? && current_user.admin_approved == true %>
+  <div class=container welcome-container>
+    <div class="card text-center welcome-card">
+      <div class="card-body">
+        <h2 class="card-title">Welcome, <%= current_user.first_name %>! Your account is activated.</h2>
+        <p class="card-text">This is your dashboard. Check your portfolio. Trade stocks. View your transactions.</p>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<% if user_signed_in? && current_user.admin_approved == false %>
+  <div class=container welcome-container>
+    <div class="card text-center welcome-card">
+      <div class="card-body">
+        <h2 class="card-title">Welcome, <%= current_user.first_name %>! Your account is pending approval.</h2>
+        <p class="card-text">Contact an admin to approve your account.</p>
+      </div>
+    </div>
+  </div>
+<% end %>
+
