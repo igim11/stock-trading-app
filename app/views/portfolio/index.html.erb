@@ -14,17 +14,17 @@
             <tr>
               <td><%= stock %></td>
               <td><%= number_with_precision(data[:shares], precision: 2) %></td>
-              <td><%= number_with_precision(data[:value], precision: 2) %></td>
+              <td><%= number_to_currency(data[:value], precision: 2) %></td>
             </tr>
           <% end %>
         <% end %>
         <tr class="portfolio-cash">
           <td colspan="2">Cash</td>
-          <td><%= number_with_precision(@user_cash, precision: 2) %></td>
+          <td><%= number_to_currency(@user_cash, precision: 2) %></td>
         </tr>
         <tr class="portfolio-total">
           <td colspan="2"><strong>Total Portfolio Value</strong></td>
-          <td><strong><%= number_with_precision(@total_portfolio_value, precision: 2) %></strong></td>
+          <td><strong><%= number_to_currency(@total_portfolio_value, precision: 2) %></strong></td>
         </tr>
       </tbody>
     </table>
