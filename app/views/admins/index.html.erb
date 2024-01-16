@@ -1,10 +1,8 @@
-<div class="admin_page_container">
-  <body>
-      <main>
-        <section>
-          <h2>Welcome, <%= current_admin.email %>!</h2>
-          <p>This is your admin dashboard. Manage users, approve sign-ups, and track transactions.</p>
-        </section>
-      </main>
-    </body>
+<div class=container welcome-container>
+  <div class="card text-center welcome-card">
+    <div class="card-body">
+      <h2 class="card-title">Welcome, <%= current_admin.first_name %>!</h2>
+      <p class="card-text">This is your admin dashboard. Manage users, approve sign-ups, and track transactions.</p>
+    </div>
+  </div>
 </div>
