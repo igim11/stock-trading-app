@@ -36,8 +36,8 @@ class AdminsController < ApplicationController
   end
 
   def approve_user
-    @user = User.find(params[:id])
-    @user.update(status: 'Approved')
+    @user = User.all
+    @user.update(status: 'approved')
     redirect_to admins_path, notice: 'User was approved.'
   end
 
