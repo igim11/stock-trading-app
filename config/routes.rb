@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       patch 'update_user'
       get 'show_user'
       post 'approve_user'
+      get 'all_transactions', to: 'admins#all_transactions'
     end
 
     collection do

@@ -46,7 +46,7 @@ class AdminsController < ApplicationController
   end
 
   def all_transactions
-    @transactions = Transaction.all
+    @transactions = Transaction.all.order(created_at: :desc)
   end
 
   private
