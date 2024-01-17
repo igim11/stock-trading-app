@@ -2,7 +2,7 @@
   <div class=container welcome-container>
     <div class="card text-center welcome-card">
       <div class="card-body">
-        <h2 class="card-title">Welcome, <%= current_user.first_name %>! Your account is activated.</h2>
+        <h2 class="card-title">Welcome, <%= user.user_id %>! Your account is activated.</h2>
         <p class="card-text">This is your dashboard. Check your portfolio. Trade stocks. View your transactions.</p>
       </div>
     </div>
@@ -13,7 +13,7 @@
   <div class=container welcome-container>
     <div class="card text-center welcome-card">
       <div class="card-body">
-        <h2 class="card-title">Welcome, <%= current_user.first_name %>! Your account is pending approval.</h2>
+        <h2 class="card-title">Welcome, <%= admin.user_id %>! Your account is pending approval.</h2>
         <p class="card-text">Contact an admin to approve your account.</p>
       </div>
     </div>

@@ -201,7 +201,9 @@ h5 {
 
 .homepage_container {
   display: flex;
-  margin-top: 0.8%;
+  background-color: #131722;
+  margin: 0 auto;
+  padding: 15px;
   overflow: hidden;
 }
 
@@ -218,11 +220,10 @@ h5 {
 }
 
 .homepage_content {
-  background-color: #131722;
-  border: 10px solid;
-  border-image: linear-gradient(to right, transparent, #000, transparent) 1;
+  /* border: 10px solid; */
+  /* border-image: linear-gradient(to right, transparent, #000, transparent) 1;
   border-image-slice: 1;
-  border-radius: 0 25px 25px 0;
+  border-radius: 0 25px 25px 0; */
   margin-right: 10px;
 }
 
@@ -254,7 +255,7 @@ h5 {
 }
 
 .get_started_section {
-  margin: 5% 0 4% 10px;
+  margin: 5% 1% 4% 10px;
 }
 
 .get_started_container {
@@ -285,15 +286,21 @@ h5 {
 }
 
 /*style for the buttons*/
-.signup_link {
-  margin-top: 5px;
-  margin-bottom: 2px;
-  font-size: 9pt;
+.signup_link,
+.back_link,
+.login_link {
+  margin: 2px;
+  padding: 2px;
+  font-size: 10pt;
+  color: blueviolet;
+  font-weight: bold;
+  text-decoration: none;
 }
 
-.login_link {
-  margin-bottom: 5px;
-  font-size: 9pt;
+.signup_link:hover,
+.back_link:hover,
+.login_link:hover {
+  color: orange;
 }
 
 .admin_login,
@@ -406,6 +413,7 @@ label,
   border-radius: 13px;
   width: 40%;
   min-width: max-content;
+  background-color: #131722;
 }
 
 .delete_page_container {
@@ -421,7 +429,8 @@ label,
   text-align: center;
 }
 
-.shared_link {
+.shared_link,
+.actions_link {
   margin: 0 auto;
   font-size: 10pt;
   padding: 0 auto;

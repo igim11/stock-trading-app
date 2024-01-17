@@ -11,8 +11,10 @@ class AdminsController < ApplicationController
 
   def create_user
     @user = User.new(user_params)
+    @user.admin_approved = true
+    @user.status = 'Approved'
     if @user.save
-      redirect_to admins_path, notice: 'Account was successfully created.'
+      redirect_to admins_show_user_path, notice: 'Account was successfully created.'
     else
       render :new_user
     end
@@ -42,7 +44,7 @@ class AdminsController < ApplicationController
   end
 
   def pending_trader_signups
-    @pending_users = User.where(status: 'pending')
+    @pending_users = User.where(status: 'Pending')
   end
 
   def all_transactions

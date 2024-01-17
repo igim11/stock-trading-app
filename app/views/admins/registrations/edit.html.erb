@@ -4,7 +4,7 @@
     <%= render "admins/shared/error_messages", resource: resource %>
   </div>
 
-  <h3>Update Account Info</h3>
+  <h3>Profile</h3>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   
@@ -27,7 +27,7 @@
     <% end %>
 
     <div class="field">
-      <%= f.label :password %> <i style="font-size:9pt">(Leave blank if you don't want to change it.)</i><br />
+      <%= f.label :password %> <i style="font-size:9pt">Leave blank if you don't want to change it.</i><br />
       <%= f.password_field :password, autocomplete: "new-password" %>
       <% if @minimum_password_length %>
         <br />
@@ -41,7 +41,7 @@
     </div>
 
     <div class="field">
-      <%= f.label :current_password %> <i style="font-size:9pt">(Input password to confirm changes.)</i><br />
+      <%= f.label :current_password %> <i style="font-size:9pt">Input password to confirm changes.</i><br />
       <%= f.password_field :current_password, autocomplete: "current-password" %>
     </div>
 
@@ -49,12 +49,5 @@
       <%= f.submit "Update", :class=>"actions_button"%>
     </div>
   <% end %>
-  </div>
-</div>
-
-<div class="delete_page_container">
-  <div class="cancel_account_container">
-
-    <h5 class="cancel_account_text", style="color:white">Unhappy with our services?</h5> <%= button_to "Delete Account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, :class=>"actions_button" %>
   </div>
 </div>
