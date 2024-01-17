@@ -1,8 +1,27 @@
-<h1>All Transactions</h1>
-
-<% @transactions.each do |transaction| %>
-  <p><%= transaction.description %></p>
-
-  <% end %>
-
-<%= link_to 'Back', admins_path %>
+<div class="container">
+  <table class="table table-striped table-dark table-hover caption-top">
+    <caption>All Transactions</caption>
+    <thead class="table-dark">
+      <tr>
+        <th>User ID</th>
+        <th>Stock</th>
+        <th>Shares</th>
+        <th>Action</th>
+        <th>Amount</th>
+        <th>Created At</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @transactions.each do |transaction| %>
+        <tr>
+          <td><%= transaction.user.user_id %></td>
+          <td><%= transaction[:stock] %></td>
+          <td><%= transaction[:shares] %></td>
+          <td><%= transaction[:action] %></td>
+          <td><%= transaction[:amount] %></td>
+          <td><%= transaction[:created_at] %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
