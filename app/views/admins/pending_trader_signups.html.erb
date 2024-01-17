@@ -2,7 +2,7 @@
     <table class="table table-striped table-dark table-hover caption-top">
       <caption style="color:orange; font-size:12pt; font-weight:bold; text-align:center">NebulaTrader Status</caption>
         <thead class="table-dark">
-          <tr>
+          <tr class="text-center">
             <th>Name</th>
             <th>Email</th>
             <th>User ID</th>
@@ -14,19 +14,19 @@
         </thead>
         <tbody>
           <% @pending_users.each do |user| %>
-            <tr>
-              <td><%= user.first_name %> <%= user.last_name %></td>
+            <tr class="text-center align-middle">
+              <td class="text-left"><%= user.first_name %> <%= user.last_name %></td>
               <td><%= user.email %></td>
               <td><%= user.user_id %></td>
-              <td><%= user.status %></td>
+              <td style="text-transform:capitalize"><%= user.status %></td>
               <td><%= user.created_at %></td>
               <td><%= user.updated_at %></td>
               <td>
-                <%= form_for(user, url: approve_user_admins_path(user), method: :post) do |f| %>
-                  <%= f.submit 'Approve', class: 'btn btn-success' %>
-                <% end %>
-                <%= form_for(user, url: cancel_admin_registration_path(user), method: :post) do |f| %>
-                  <%= f.submit 'Reject', class: 'btn btn-danger' %>
+                  <%= form_for(user, url: approve_user_admins_path(user), method: :post) do |f| %>
+                    <%= f.submit 'Approve', class: 'btn btn-success m-1 p-1 fs-6' %>
+                  <% end %>
+                  <%= form_for(user, url: cancel_admin_registration_path(user), method: :post) do |f| %>
+                    <%= f.submit 'Reject', class: 'btn btn-danger m-1 p-1 fs-6' %>
                 <% end %>
               </td>
             </tr>

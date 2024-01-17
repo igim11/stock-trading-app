@@ -213,7 +213,8 @@ h5 {
 }
 
 .homepage_header {
-  margin-top: 30px;
+  margin: 5% auto;
+  padding: 2% 0;
 }
 
 .homepage_content {
@@ -253,7 +254,7 @@ h5 {
 }
 
 .get_started_section {
-  margin: 4% 0 3% 10px;
+  margin: 5% 0 4% 10px;
 }
 
 .get_started_container {
@@ -268,7 +269,7 @@ h5 {
 
 .homepage_gif_container {
   display: flex;
-  margin: 40px 5px 0 10px;
+  margin: 12% 5px 0 10px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -277,9 +278,10 @@ h5 {
 }
 
 .homepage_gif_container img {
-  width: 222px;
-  height: 222px;
-  border-radius: 0 8px 0 8px;
+  width: 275px;
+  height: 175px;
+  border-radius: 3px;
+  box-shadow: 0 0 10px 5px rgb(0, 0, 0, 0.5);
 }
 
 /*style for the buttons*/
