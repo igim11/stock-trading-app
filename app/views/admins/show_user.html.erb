@@ -6,10 +6,13 @@
             <th>Name</th>
             <th>Email</th>
             <th>User ID</th>
+            <th>Balance</th>
             <th>Status</th>
             <th>Created</th>
             <th>Updated</th>
-            <th>Balance</th>
+            <th>Actions</th>
+
+            <th>
  
           </tr>
         </thead>
@@ -19,14 +22,19 @@
               <td class="text-left"><%= user.first_name %> <%= user.last_name %></td>
               <td><%= user.email %></td>
               <td><%= user.user_id %></td>
-              <td><%= user.status %></td>
-              <td><%= user.created_at %></td>
-              <td><%= user.updated_at %></td>
               <td>$ <%= user.cash %></td>
+              <td style="text-transform:capitalize"><%= user.status %></td>
+              <td><%= user.created_at.strftime("%b %d, %Y %H:%M:%S") %></td>
+              <td><%= user.updated_at.strftime("%b %d, %Y %H:%M:%S") %></td>
+              <td>
+                <%= link_to 'Show Details', show_user_admins_path(user), class: "actions_link"%>
+                |
+                <%= link_to 'Edit Info', edit_user_admins_path(user), class: "actions_link" %>
+                </td>       
             </tr>
           <% end %>
         </tbody>
       </table>
 
-  <%= link_to 'Back', admins_path %>
+  <%= link_to 'Back', admins_path, :class=> "back_link" %>
 </div>
