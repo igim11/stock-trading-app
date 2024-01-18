@@ -40,9 +40,9 @@ class AdminsController < ApplicationController
   end
 
   def approve_user
-    @user = User.find(params[:id])
+    @user = User.all
     @user.update(admin_approved: true, status: 'approved')
-    redirect_to admins_show_user_path, notice: 'User was approved.'
+    redirect_to show_user_admins_path, notice: 'User was approved.'
   end
 
   def pending_trader_signups

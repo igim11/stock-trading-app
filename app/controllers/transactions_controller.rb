@@ -22,9 +22,9 @@ class TransactionsController < ApplicationController
       if @transaction.save
         update_user_cash(@transaction)
         if request.referer == transactions_buy_url
-          format.html { redirect_to transactions_buy_url, notice: "transaction was successfully created." }
+          format.html { redirect_to transactions_buy_url, notice: "Successfully bought #{@transaction.shares} shares of #{@transaction.stock}." }
         else
-          format.html { redirect_to transactions_sell_url, notice: "transaction was successfully created." }
+          format.html { redirect_to transactions_sell_url, notice: "Successfully sold #{@transaction.shares} shares of #{@transaction.stock}." }
         end
         format.json { render :show, status: :created, location: @transaction }
       else
