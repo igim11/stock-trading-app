@@ -22,7 +22,7 @@ class Users::SessionsController < Devise::SessionsController
   protected
 
   def after_sign_in_path_for(resource)
-    portfolio_path
+    dashboard_path
   end
 
   # # If you have extra params to permit, append them to the sanitizer.

@@ -2,8 +2,6 @@ class Admin::SessionsController < Devise::SessionsController
 end
 
 
-
-
 # class Admin::SessionsController < ApplicationController
 #   before_action :require_no_admin, only: [:new, :create]
 #   before_action :require_admin, only: [:destroy]
@@ -35,7 +33,7 @@ end
 #   private
 
 #   def require_no_admin
-#     redirect_to admins_index_path if current_admin
+#     redirect_to admins_path if current_admin
 #   end
 
 #   def require_admin

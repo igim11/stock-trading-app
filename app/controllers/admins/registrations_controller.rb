@@ -2,25 +2,25 @@ class Admins::RegistrationsController < Devise::RegistrationsController
   before_action :authenticate_admin!
   before_action :configure_sign_up_params, only: [:create]
   
-  def new
-    super
-  end
+  # def new
+  #   super
+  # end
 
-  def create
-    super
-  end
+  # def create
+  #   super
+  # end
 
-  def edit
-    super
-  end
+  # def edit
+  #   super
+  # end
 
-  def update
-    super
-  end
+  # def update
+  #   super
+  # end
 
-  def destroy
-    super
-  end
+  # def destroy
+  #   super
+  # end
 
     def new_user
      super do |user|

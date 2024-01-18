@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   resources :admins do
     collection do
       get 'new_user'
-      post 'create_user'
-      get 'edit_user'
-      patch 'update_user'
+      post 'create_user' 
+      get 'edit_user/:id', to: 'admins#edit_user', as: 'edit_user'
+      patch 'update_user/:id', to: 'admins#update_user', as: 'update_user'
       get 'show_user'
       post 'approve_user'
       get 'all_transactions', to: 'admins#all_transactions'

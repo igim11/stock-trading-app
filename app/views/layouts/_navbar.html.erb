@@ -1,15 +1,9 @@
 <nav class="navbar navbar-custom navbar-expand-lg">
   <div class="container-fluid">
 
-<% if current_admin %>
-    <%= link_to admins_path, class:"navbar-brand" do %>
+    <%= link_to dashboard_path, class:"navbar-brand" do %>
       <%= image_tag("NebulaTrade Logo-noText.png", alt: "NebulaTrade Logo", class: "navbar-logo") %>
     <% end %>
-<% else %>
-  <%= link_to portfolio_path, class: "navbar-brand" do %>
-    <%= image_tag("NebulaTrade Logo-noText.png", alt: "NebulaTrade Logo", class: "navbar-logo") %>
-  <% end %>
-<% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
