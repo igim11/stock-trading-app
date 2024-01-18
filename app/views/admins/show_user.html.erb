@@ -10,10 +10,7 @@
             <th>Status</th>
             <th>Created</th>
             <th>Updated</th>
-            <th>Actions</th>
-
-            <th>
- 
+            <th></th> 
           </tr>
         </thead>
         <tbody>
@@ -26,11 +23,7 @@
               <td style="text-transform:capitalize"><%= user.status %></td>
               <td><%= user.created_at.strftime("%b %d, %Y %H:%M:%S") %></td>
               <td><%= user.updated_at.strftime("%b %d, %Y %H:%M:%S") %></td>
-              <td>
-                <%= link_to 'Show Details', show_user_admins_path(user), class: "actions_link"%>
-                |
-                <%= link_to 'Edit Info', edit_user_admins_path(user), class: "actions_link" %>
-                </td>       
+              <td><%= link_to 'Edit Info', edit_user_admins_path(user), class: "actions_link" %></td>       
             </tr>
           <% end %>
         </tbody>
