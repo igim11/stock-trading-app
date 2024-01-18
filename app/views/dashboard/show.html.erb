@@ -2,6 +2,7 @@
   <div class=container welcome-container>
     <div class="card text-center welcome-card">
       <div class="card-body">
+
         <h2 class="card-title">Welcome, <%= current_user.user_id %>!</h2><br />
         <h4 class="card-title">Your account is activated.</h4>
         <p class="card-text">This is your dashboard.</p>
@@ -20,6 +21,7 @@
   <div class=container welcome-container>
     <div class="card text-center welcome-card">
       <div class="card-body">
+
         <h2 class="card-title">Welcome, <%= current_user.user_id %>!</h2><br />
         <h4 class="card-title">Your account is pending approval.</h4>
         <p class="card-text">Allow us to review your profile and wait for a response within 24 hours.</p>
@@ -31,4 +33,3 @@
     </div>
   </div>
 <% end %>
-
