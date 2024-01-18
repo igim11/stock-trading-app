@@ -73,6 +73,7 @@ end
     total_shares - sold_shares
   end
 
+
   private
 
   def set_default_status

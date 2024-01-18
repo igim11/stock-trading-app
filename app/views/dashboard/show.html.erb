@@ -2,8 +2,15 @@
   <div class=container welcome-container>
     <div class="card text-center welcome-card">
       <div class="card-body">
-        <h2 class="card-title">Welcome, <%= user.user_id %>! Your account is activated.</h2>
-        <p class="card-text">This is your dashboard. Check your portfolio. Trade stocks. View your transactions.</p>
+        <h2 class="card-title">Welcome, <%= current_user.user_id %>!</h2><br />
+        <h4 class="card-title">Your account is activated.</h4>
+        <p class="card-text">This is your dashboard.</p>
+        <p class="card-text">Check your portfolio.</p>
+        <p class="card-text">Trade stocks.</p> 
+        <p class="card-text">View your transactions.</p>
+        
+        <%= image_tag("ChibiNebula_SoonJinGraphics.png", alt: "ChibiNebula_SoonJinGraphics.png", size: "150x150") %>
+      
       </div>
     </div>
   </div>
@@ -13,8 +20,13 @@
   <div class=container welcome-container>
     <div class="card text-center welcome-card">
       <div class="card-body">
-        <h2 class="card-title">Welcome, <%= admin.user_id %>! Your account is pending approval.</h2>
-        <p class="card-text">Contact an admin to approve your account.</p>
+        <h2 class="card-title">Welcome, <%= current_user.user_id %>!</h2><br />
+        <h4 class="card-title">Your account is pending approval.</h4>
+        <p class="card-text">Allow us to review your profile and wait for a response within 24 hours.</p>
+        <p class="card-text">Thank you!</p>
+        
+        <%= image_tag("ChibiNebula_SoonJinGraphics.png", alt: "ChibiNebula_SoonJinGraphics.png", size: "150x150") %>
+      
       </div>
     </div>
   </div>

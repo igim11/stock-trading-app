@@ -16,11 +16,13 @@
 
 @font-face {
   font-family: "Cascadia Code";
-  src: url("CascadiaCode.ttf") format("truetype"),
-    url("CascadiaMono.ttf") format("truetype");
+  src: asset-url("CascadiaCode.ttf") format("truetype"),
+    asset-url("CascadiaMono.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
+
+/* styles.css */
 
 header {
   color: white;
@@ -63,7 +65,7 @@ li,
 
 .error_message_text {
   font-size: 11;
-  color: orange;
+  color: rgb(243, 178, 58);
 }
 
 .nav_link {
@@ -76,7 +78,7 @@ li,
 }
 
 .nav_link:hover {
-  color: orange;
+  color: rgb(243, 178, 58);
   background-color: #2a2d35;
 }
 
@@ -96,7 +98,7 @@ li,
 }
 
 .navbar-nav .nav-link:hover {
-  color: orange;
+  color: rgb(243, 178, 58);
   background-color: #2a2d35;
 }
 
@@ -105,7 +107,7 @@ li,
 }
 
 .navbar-toggler:hover {
-  background-color: orange;
+  background-color: rgb(243, 178, 58);
 }
 
 /*style for the dashboard page*/
@@ -123,7 +125,7 @@ li,
 
 .welcome-card {
   color: white;
-  border: 2px solid orange;
+  border: 2px solid rgb(243, 178, 58);
   margin: auto;
   text-align: center;
   padding: 20px;
@@ -196,7 +198,7 @@ caption {
 
 /*style for the homepage*/
 h5 {
-  color: darkorange;
+  color: rgb(243, 178, 58);
 }
 
 .homepage_container {
@@ -300,7 +302,7 @@ h5 {
 .signup_link:hover,
 .back_link:hover,
 .login_link:hover {
-  color: orange;
+  color: white;
 }
 
 .admin_login,
@@ -317,7 +319,7 @@ h5 {
 .admin_login_button-container a,
 .user_login_button-container a {
   text-decoration: none;
-  color: rgb(168, 45, 168);
+  color: rgb(202, 55, 202);
   padding: 5px 8px;
   border-radius: 5px;
   font-weight: bold;
@@ -325,7 +327,7 @@ h5 {
 
 .admin_login_button-container a:hover,
 .user_login_button-container a:hover {
-  color: white;
+  color: rgb(243, 178, 58);
 }
 
 button {
@@ -341,7 +343,7 @@ button {
 
 .button-container a {
   text-decoration: none;
-  color: orange;
+  color: rgb(243, 178, 58);
   background-color: rgb(49, 52, 53);
   padding: 5px 8px;
   border-radius: 5px;
@@ -350,7 +352,7 @@ button {
 
 .button-container a:hover {
   color: white;
-  background-color: orange;
+  background-color: rgb(243, 178, 58);
 }
 
 .actions_button {
@@ -359,7 +361,7 @@ button {
   padding: 2px;
   font-family: Cascadia Code, monospace;
   font-weight: bold;
-  color: orange;
+  color: rgb(243, 178, 58);
   background-color: rgb(49, 52, 53);
   border-radius: 5px 0 5px 0;
   font-size: 10pt;
@@ -368,7 +370,7 @@ button {
 
 .actions_button :hover {
   color: rgb(49, 52, 53);
-  background-color: orange;
+  background-color: rgb(243, 178, 58);
 }
 
 .fields_container,
@@ -409,7 +411,7 @@ label,
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 1px solid orange;
+  border: 1px solid rgb(243, 178, 58);
   border-radius: 13px;
   width: 40%;
   min-width: max-content;
@@ -434,6 +436,12 @@ label,
   margin: 0 auto;
   font-size: 10pt;
   padding: 0 auto;
-  color: orange;
+  color: rgb(243, 178, 58);
   text-align: center;
+  text-decoration: none;
+}
+
+.shared_link:hover,
+.actions_link:hover {
+  color: whitesmoke;
 }
