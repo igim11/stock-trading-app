@@ -17,7 +17,7 @@
           <td><%= transaction[:shares] %></td>
           <td style="text-transform:capitalize"><%= transaction[:action] %></td>
           <td>$<%= transaction[:amount] %></td>
-          <td><%= transaction[:created_at].strftime("%b %d, %Y %H:%M:%S") %></td>
+          <td><%= transaction[:created_at].strftime("%b %d,%Y %I:%M%p") %></td>
         </tr>
       <% end %>
     </tbody>

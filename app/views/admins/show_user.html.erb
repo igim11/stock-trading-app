@@ -21,8 +21,8 @@
               <td><%= user.user_id %></td>
               <td>$ <%= user.cash %></td>
               <td style="text-transform:capitalize"><%= user.status %></td>
-              <td><%= user.created_at.strftime("%b %d, %Y %H:%M:%S") %></td>
-              <td><%= user.updated_at.strftime("%b %d, %Y %H:%M:%S") %></td>
+              <td><%= user.created_at.strftime("%b %d,%Y %I:%M%p") %></td>
+              <td><%= user.updated_at.strftime("%b %d,%Y %I:%M%p") %></td>
               <td><%= link_to 'Edit Info', edit_user_admins_path(user), class: "actions_link" %></td>       
             </tr>
           <% end %>

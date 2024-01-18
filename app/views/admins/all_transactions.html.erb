@@ -18,8 +18,8 @@
           <td><%= transaction[:stock] %></td>
           <td><%= transaction[:shares] %></td>
           <td style="text-transform:capitalize"><%= transaction[:action] %></td>
-          <td>$<%= transaction[:amount] %></td>
-          <td><%= transaction.created_at.strftime("%b %d, %Y %H:%M:%S") %></td>
+          <td><%= number_to_currency(transaction.amount, precision: 2) %></td>
+          <td><%= transaction.created_at.strftime("%b %d,%Y %I:%M%p") %></td>
         </tr>
       <% end %>
     </tbody>
