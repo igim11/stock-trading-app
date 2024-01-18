@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-  devise_for :admins 
+  devise_for :admins, controllers: { registrations: 'admins/registrations' }
   resources :admins do
     collection do
       get 'new_user'
