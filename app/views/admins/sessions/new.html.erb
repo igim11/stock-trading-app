@@ -1,9 +1,12 @@
 <div class="login_page_container">
-
   <%= image_tag("NebulaTrade Logo.png", alt: "NebulaTrade Logo", size: "150x150") %>
 
   <div class="error_message-container">
-    <%= render "admins/shared/error_messages", resource: resource %>
+    <% if flash[:alert] %>
+      <div id="login-alert" class="alert alert-danger p-1">
+        <%= flash[:alert] %>
+      </div>
+    <% end %>
   </div>
 
   <h3>Admin Login</h3>
@@ -11,12 +14,12 @@
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="field">
       <%= f.label :email %>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "login-input" %>
     </div>
 
     <div class="field">
       <%= f.label :password %>
-      <%= f.password_field :password, autocomplete: "current-password" %>
+      <%= f.password_field :password, autocomplete: "current-password", class: "login-input" %>
     </div>
 
     <% if devise_mapping.rememberable? %>
@@ -27,14 +30,18 @@
     <% end %>
 
     <div class="actions">
-      <%= f.submit "Login", :class=>"actions_button" %>
+      <%= f.submit "Log in", class: "actions_button" %>
     </div>
-
   <% end %>
 
   <p class="no_account_yet_text">No account yet?</p><%= render "admins/shared/links" %>
 
-  <div class="user_login_button-container">
-    <p class="user_login"><%= link_to 'Client Login', new_user_session_path, class: 'button' %></p>
-  </div>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('.login-input').on('input', function () {
+        $('#login-alert').hide();
+      });
+    });
+  </script>
 </div>
