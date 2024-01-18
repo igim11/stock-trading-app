@@ -11,41 +11,47 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <% if user_signed_in? && current_user.admin_approved == true %>
-          <li class="nav-item">
-            <%= link_to "Profile", edit_user_registration_path, class:"nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "My Portfolio", portfolio_path, class:"nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Trade", transactions_buy_path, class:"nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Transactions", transactions_path, class:"nav-link" %>
-          </li>
+        <li class="nav-item">
+            <span class="nav-link" style="color:orange">Signed in: <%= current_user.user_id %></span>
+        </li>
+        <li class="nav-item">
+          <%= link_to "| Profile", edit_user_registration_path, class:"nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "| My Portfolio", portfolio_path, class:"nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "| Trade", transactions_buy_path, class:"nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "| Transactions", transactions_path, class:"nav-link" %>
+        </li>
         <% end %>
       <% if admin_signed_in? %>
         <li class="nav-item">
-          <%= link_to "Profile", edit_admin_registration_path, class:"nav-link" %>
+            <span class="nav-link" style="color:orange">Signed in: <%= current_admin.user_id %></span>
         </li>
         <li class="nav-item">
-          <%= link_to "Pending Registration", pending_trader_signups_admins_path, class:"nav-link" %> 
+          <%= link_to "| Admin Profile", edit_admin_registration_path, class:"nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "NebulaTraders", show_user_admins_path, class:"nav-link" %>
+          <%= link_to "| Pending Registration", pending_trader_signups_admins_path, class:"nav-link" %> 
         </li>
         <li class="nav-item">
-          <%= link_to "Create User", new_user_admins_path, class:"nav-link" %>
+          <%= link_to "| NebulaTraders", show_user_admins_path, class:"nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "User Transactions", all_transactions_admins_path, class:"nav-link" %>
+          <%= link_to "| Create User", new_user_admins_path, class:"nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "| User Transactions", all_transactions_admins_path, class:"nav-link" %>
         </li>
       <% end %>
       </ul>
       <ul class="navbar-nav ms-auto">
         <% if user_signed_in? %>
         <li class="nav-item nav-balance">
-          <span class="nav-link", style="color:orange">Balance: $<%= current_user.cash %></span>
+          <span class="nav-link" style="color:orange">Balance: $<%= current_user.cash %></span>
         </li>
         <% end %> 
         <% if user_signed_in? || admin_signed_in? %>
