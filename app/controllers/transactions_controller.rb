@@ -1,5 +1,5 @@
 class TransactionsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, :check_admin_approval
 
   def index
   end
@@ -45,6 +45,12 @@ class TransactionsController < ApplicationController
   end
 
   private
+
+  def check_admin_approval
+    unless current_user && current_user.admin_approved
+      redirect_to root_path
+    end
+  end
 
   def populate_price_and_amount
     if @transaction.shares.present?
