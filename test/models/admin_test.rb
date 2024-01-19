@@ -23,11 +23,9 @@ class AdminTest < ActiveSupport::TestCase
   end
 
   test "should not save admin without password" do
-    admin = Admin.new(first_name: "Christine" , last_name: "Tauy", user_id: "test" email: "test_email@example.com")
+    admin = Admin.new(first_name: "Christine" , last_name: "Tauy", user_id: "test", email: "test_email@example.com")
     assert_not admin.save, "Saved the admin without a password"
   end
-
-
 
 
 end

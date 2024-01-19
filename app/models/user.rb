@@ -24,6 +24,10 @@ class User < ApplicationRecord
     devise_parameter_sanitizer.permit(:sign_in, keys: [:first_name, :last_name, :user_id, :email, :password, :confirm_password, :cash, :admin_approved, :status])
   end
 
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:account_update, keys: [:email, :password, :password_confirmation, :current_password])
+  end
+
   def portfolio_value
     client = IEX::Api::Client.new
 
