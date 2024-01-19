@@ -21,6 +21,7 @@
               <td><%= user.created_at.strftime("%b %d,%Y %I:%M%p") %></td>
               <td>
                   <%= form_for(user, url: approve_user_admins_path(user), method: :post) do |f| %>
+                    <%= hidden_field_tag :user_id, user.id %>
                     <%= f.submit 'Approve', class: 'btn btn-success m-1 p-1 fs-6' %>
                   <% end %>
               </td>
