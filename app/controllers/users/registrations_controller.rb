@@ -19,10 +19,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # # POST /resource
-  # def create
-  #   super
-  # end
+  # POST /resource
+  def create
+    super do |resource|
+      resource.save!
+      PendingMailer.pending_email(resource).deliver_later
+    end
+  end
 
   # # GET /resource/edit
   # def edit

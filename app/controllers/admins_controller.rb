@@ -40,8 +40,10 @@ class AdminsController < ApplicationController
   end
 
   def approve_user
-    @user = User.all
+    puts params.inspect
+    @user = User.find(params[:user_id])
     @user.update(admin_approved: true, status: 'approved')
+    ApprovedMailer.approved_email(@user).deliver_later
     redirect_to show_user_admins_path, notice: 'User was approved.'
   end
 
