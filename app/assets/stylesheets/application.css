@@ -270,7 +270,7 @@ h5 {
   border-radius: 13px 0 0 13px;
 }
 
-.homepage_gif_container {
+.homepage_video_container {
   display: flex;
   margin: 12% 5px 0 10px;
   flex-direction: column;
@@ -278,13 +278,6 @@ h5 {
   justify-content: center;
   position: relative;
   border-radius: 0 13px 13px 0;
-}
-
-.homepage_gif_container img {
-  width: 275px;
-  height: 175px;
-  border-radius: 3px;
-  box-shadow: 0 0 10px 5px rgb(0, 0, 0, 0.5);
 }
 
 /*style for the buttons*/
